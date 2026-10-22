@@ -10,7 +10,11 @@
 #include "G4Box.hh"
 #include "G4Tubs.hh"
 
+#include <boost/algorithm/string.hpp>
+#include <cmath>
+#include <iomanip>
 #include <iostream>
+#include <stdexcept>
 using namespace std;
 
 Hodoscope::Hodoscope(const int id, const Detector::DetectorType type) :
@@ -21,6 +25,192 @@ Hodoscope::Hodoscope(const int id, const Detector::DetectorType type) :
 
 void
 Hodoscope::BuildDetector(G4LogicalVolume* logMother, Event& aEvent, G4bool fCheckOverlaps)
+{
+	if (IsNA64Mini()) {
+		BuildNA64MiniDetector(logMother, aEvent, fCheckOverlaps);
+		return;
+	}
+
+	BuildLegacyDetector(logMother, aEvent, fCheckOverlaps);
+}
+
+void
+Hodoscope::SetDetectorProperties(const boost::property_tree::ptree &aTree)
+{
+	Scintillator::SetDetectorProperties(aTree);
+
+	for (const auto& property : aTree) {
+		string xmlLabel = property.first;
+		string xmlValue = property.second.data();
+
+		if (xmlLabel == "hodoscopeModel") {
+			boost::algorithm::trim(xmlValue);
+			fHodoscopeModel = xmlValue;
+			if (IsNA64Mini()) {
+				fName = "HodoscopeNA64Mini";
+				SetNBars(fBarsPerAxis);
+			}
+		}
+		else if (xmlLabel == "hodoscope_material_detail") {
+			boost::algorithm::trim(xmlValue);
+			fHodoscopeMaterialDetail = xmlValue;
+		}
+		else if (xmlLabel == "lower_module_reflector") {
+			boost::algorithm::trim(xmlValue);
+			fLowerModuleReflector = xmlValue;
+		}
+		else if (xmlLabel == "upper_module_reflector") {
+			boost::algorithm::trim(xmlValue);
+			fUpperModuleReflector = xmlValue;
+		}
+	}
+}
+
+double
+Hodoscope::GetNA64BarCenterCoordinate(int index, double /*barWidth*/, double subplaneOffset) const
+{
+	if (index < 0 || index >= fBarsPerAxis) {
+		throw std::runtime_error("NA64-mini hodoscope channel index out of range; expected 0..15.");
+	}
+
+	const int subplane = index / fBarsPerSubplane;
+	const int localIndex = index % fBarsPerSubplane;
+	const double centeredOrigin = 0.5 * ((fBarsPerSubplane - 1) * fBarPitchNominal + subplaneOffset);
+	return localIndex * fBarPitchNominal + subplane * subplaneOffset - centeredOrigin;
+}
+
+void
+Hodoscope::AddNA64BarMetadata(const std::string& module, const std::string& axis, int channel, double centerX, double centerY, double centerZ)
+{
+	const int globalBase = (module == "LOWER") ? 0 : 32;
+	const int axisBase = (axis == "X") ? 0 : 16;
+	const int globalChannel = globalBase + axisBase + channel;
+
+	BarMetadata meta;
+	meta.module = module;
+	meta.axis = axis;
+	meta.subplane = (channel < fBarsPerSubplane) ? "A" : "B";
+	meta.localIndex = channel % fBarsPerSubplane;
+	meta.channelIndexAxis = channel;
+	meta.globalChannelId = globalChannel;
+	meta.sensitiveBarId = globalChannel + 1;
+	std::ostringstream barId;
+	barId << module << "_" << axis << "_" << std::setw(2) << std::setfill('0') << channel;
+	meta.barId = barId.str();
+	meta.sipmId = meta.barId + "_SIPM";
+	meta.centerX = centerX;
+	meta.centerY = centerY;
+	meta.centerZ = centerZ;
+	meta.length = GetBarLength();
+	meta.width = GetBarWidth();
+	meta.thickness = GetBarThickness();
+	fNA64BarMetadata.push_back(meta);
+}
+
+void
+Hodoscope::ValidateNA64MiniGeometry() const
+{
+	if (static_cast<int>(fNA64BarMetadata.size()) != GetNA64TotalActiveBars()) {
+		throw std::runtime_error("NA64-mini hodoscope geometry error: total active bars is not 64.");
+	}
+	if (fBarsPerAxis != 16) {
+		throw std::runtime_error("NA64-mini hodoscope geometry error: every axis must have exactly 16 channels.");
+	}
+	if (fBarsPerAxis * fBarsPerAxis != GetNA64PixelsPerModule()) {
+		throw std::runtime_error("NA64-mini hodoscope geometry error: each module must have 256 pixels.");
+	}
+	if (std::abs((fLowerModuleZMax - fLowerModuleZMin) - fModuleTotalThickness) > 1e-6 * CLHEP::mm ||
+	    std::abs((fUpperModuleZMax - fUpperModuleZMin) - fModuleTotalThickness) > 1e-6 * CLHEP::mm) {
+		throw std::runtime_error("NA64-mini hodoscope geometry error: a module does not respect z_min/z_max thickness.");
+	}
+	if (fUpperModuleReflector == "VikuitiESR") {
+		throw std::runtime_error("NA64-mini hodoscope geometry error: upper module must not use VikuitiESR by default.");
+	}
+}
+
+void
+Hodoscope::BuildNA64MiniDetector(G4LogicalVolume* logMother, Event& aEvent, G4bool fCheckOverlaps)
+{
+	if (fHodoscopeMaterialDetail != "active_only") {
+		Logger::Print("NA64-mini dead material modes are TODO. Building active_only geometry.", WARNING, "BuildDetector");
+	}
+
+	fNA64BarMetadata.clear();
+	SetBarLength(75.0 * CLHEP::mm);
+	SetBarWidth(3.0 * CLHEP::mm);
+	SetBarThickness(1.0 * CLHEP::mm);
+
+	auto sdMan = G4SDManager::GetSDMpointer();
+	const int detectorId = GetId();
+	G4ThreeVector detectorPos = Geometry::ToG4Vector(GetDetectorPosition(), 1.);
+
+	ostringstream namedetector;
+	namedetector << "HodoscopeNA64Mini_" << detectorId;
+	Logger::Print("Building NA64-mini hodoscope with 64 active BC-408 bars", INFO, "BuildDetector");
+
+	G4VisAttributes green(G4Colour::Green());
+	G4VisAttributes blue(G4Colour::Blue());
+
+	struct ModuleSpec {
+		const char* name;
+		double zMin;
+		double zMax;
+	};
+	const ModuleSpec modules[] = {
+		{"LOWER", fLowerModuleZMin, fLowerModuleZMax},
+		{"UPPER", fUpperModuleZMin, fUpperModuleZMax}
+	};
+
+	for (const auto& module : modules) {
+		for (int axisIndex = 0; axisIndex < 2; ++axisIndex) {
+			const string axis = (axisIndex == 0) ? "X" : "Y";
+			for (int channel = 0; channel < fBarsPerAxis; ++channel) {
+				const int subplane = channel / fBarsPerSubplane;
+				const string subplaneName = (subplane == 0) ? "A" : "B";
+				const double transverse = GetNA64BarCenterCoordinate(channel, GetBarWidth(), fSubplaneOffset);
+				const double localZ =
+					(axis == "X")
+						? ((subplane == 0) ? 1.5 * CLHEP::mm : 3.5 * CLHEP::mm)
+						: ((subplane == 0) ? 8.5 * CLHEP::mm : 10.5 * CLHEP::mm);
+				const double centerZ = module.zMin + localZ;
+				const double centerX = (axis == "X") ? transverse : 0.0;
+				const double centerY = (axis == "Y") ? transverse : 0.0;
+
+				AddNA64BarMetadata(module.name, axis, channel, centerX, centerY, centerZ);
+				const BarMetadata& meta = fNA64BarMetadata.back();
+
+				G4Box* solidScinBar = nullptr;
+				if (axis == "X") {
+					solidScinBar = new G4Box(meta.barId, 0.5 * GetBarWidth(), 0.5 * GetBarLength(), 0.5 * GetBarThickness());
+				}
+				else {
+					solidScinBar = new G4Box(meta.barId, 0.5 * GetBarLength(), 0.5 * GetBarWidth(), 0.5 * GetBarThickness());
+				}
+
+				G4LogicalVolume* logScinBar = new G4LogicalVolume(solidScinBar, Materials().ScinPlastic, meta.barId, 0, 0, 0);
+				logScinBar->SetVisAttributes(axis == "X" ? green : blue);
+
+				const G4ThreeVector barPosition(
+					detectorPos.getX() + centerX,
+					detectorPos.getY() + centerY,
+					detectorPos.getZ() + centerZ);
+				new G4PVPlacement(nullptr, barPosition, logScinBar, meta.barId, logMother, false, meta.sensitiveBarId, fCheckOverlaps);
+
+				G4MScintillatorBarAction* const scinBarSD =
+					new G4MScintillatorBarAction(namedetector.str() + "/" + meta.barId, detectorId, meta.sensitiveBarId, aEvent);
+				sdMan->AddNewDetector(scinBarSD);
+				logScinBar->SetSensitiveDetector(scinBarSD);
+
+				MakeOptDevice(meta.sensitiveBarId, OptDevice::eSiPM);
+			}
+		}
+	}
+
+	ValidateNA64MiniGeometry();
+}
+
+void
+Hodoscope::BuildLegacyDetector(G4LogicalVolume* logMother, Event& aEvent, G4bool fCheckOverlaps)
 {
 	// solids
 	G4Box* solidEnclosure = nullptr;
@@ -251,5 +441,3 @@ Hodoscope::BuildDetector(G4LogicalVolume* logMother, Event& aEvent, G4bool fChec
 	} // end loop of batrs of the bottom panel
 
 }
-
-

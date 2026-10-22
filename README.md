@@ -66,6 +66,28 @@ export PhotonEvaporation=$G4COMP/data/PhotonEvaporation5.7
 export RadioactiveDecay=$G4COMP/data/RadioactiveDecay5.6
 export RealSurface=$G4COMP/data/RealSurface2.2
 ```
+
+### Windows 11 + WSL2
+
+If Blender on Linux fails because of GLX or Mesa issues, you can render the WRL files with Blender installed on Windows and launched from WSL2.
+
+PowerShell:
+
+```powershell
+winget install BlenderFoundation.Blender
+```
+
+WSL:
+
+```bash
+find /mnt/c/Program\ Files -iname blender.exe 2>/dev/null
+export WINDOWS_BLENDER_EXE="/mnt/c/Program Files/Blender Foundation/Blender 4.3/blender.exe"
+make -C docs/beamer geometry
+make -C docs/beamer pdf
+```
+
+The geometry render script will first try the native Linux Blender path, then the Windows Blender executable through WSL interop, and finally the Geant4 RayTracer fallback when available.
+
 ### Installation
 
 1. Get the source code from the repository:

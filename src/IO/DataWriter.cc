@@ -10,6 +10,7 @@
 #include <string.h>
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 #include <sstream>
 
 
@@ -77,6 +78,10 @@ DataWriter::FileWriter(Event& theEvent)
 			// get deposited energy
 			if (cfg.fSaveEnergy && detSimData.HasEnergyDeposit()) {
 				SaveDepositedEnergy(jEvent, detSimData, detId, eventId);
+			}
+
+			if (currDet.GetName() == "HodoscopeNA64Mini" && detSimData.HasBarEnergyDeposit()) {
+				SaveNA64MiniHodoscope(jEvent, detSimData, detId, eventId);
 			}
 			
 			// get particle counter (for scintillator detectors)
@@ -307,4 +312,125 @@ DataWriter::SaveBinaryCounter(json& jEvent, const DetectorSimData &detSimData, i
 	const auto & binaryCounter = detSimData.GetBinaryCounter();
 	jEvent["Detector_"+to_string(detId)]["BinaryCounter"] = binaryCounter.at(eventId);
 
+}
+
+void
+DataWriter::SaveNA64MiniHodoscope(json& jEvent, const DetectorSimData &detSimData, int detId, size_t eventId)
+{
+	const double activeHitThresholdMeV = 0.1;
+	const auto& barEdepEvents = detSimData.GetBarEnergyDeposit();
+	if (eventId >= barEdepEvents.size()) {
+		return;
+	}
+
+	const auto& barEdep = barEdepEvents.at(eventId);
+	const auto& barTimeEvents = detSimData.GetBarFirstTime();
+	const bool hasTimes = eventId < barTimeEvents.size();
+	const std::map<int, double> emptyTimes;
+	const auto& barTimes = hasTimes ? barTimeEvents.at(eventId) : emptyTimes;
+
+	json activeHits = json::array();
+	vector<int> lowerXChannels;
+	vector<int> lowerYChannels;
+	vector<int> upperXChannels;
+	vector<int> upperYChannels;
+	double bestEdep[4] = {-1.0, -1.0, -1.0, -1.0};
+	int bestChannel[4] = {-1, -1, -1, -1};
+
+	for (const auto& pair : barEdep) {
+		const int sensitiveBarId = pair.first;
+		const int globalChannel = sensitiveBarId - 1;
+		if (globalChannel < 0 || globalChannel >= 64) {
+			continue;
+		}
+
+		const double edepMeV = pair.second / CLHEP::MeV;
+		if (edepMeV <= activeHitThresholdMeV) {
+			continue;
+		}
+
+		const bool isLower = globalChannel < 32;
+		const bool isX = (globalChannel % 32) < 16;
+		const int channel = globalChannel % 16;
+		const string module = isLower ? "LOWER" : "UPPER";
+		const string axis = isX ? "X" : "Y";
+		const int quadrant = (isLower ? 0 : 2) + (isX ? 0 : 1);
+
+		ostringstream barId;
+		barId << module << "_" << axis << "_" << std::setw(2) << std::setfill('0') << channel;
+
+		json hit;
+		hit["module"] = module;
+		hit["axis"] = axis;
+		hit["channel"] = channel;
+		hit["global_channel"] = globalChannel;
+		hit["bar_id"] = barId.str();
+		hit["edep_MeV"] = edepMeV;
+		auto timeIt = barTimes.find(sensitiveBarId);
+		if (timeIt != barTimes.end()) {
+			hit["first_time_ns"] = timeIt->second / CLHEP::ns;
+		}
+		else {
+			hit["first_time_ns"] = nullptr;
+		}
+		activeHits.push_back(hit);
+
+		if (isLower && isX) lowerXChannels.push_back(channel);
+		else if (isLower && !isX) lowerYChannels.push_back(channel);
+		else if (!isLower && isX) upperXChannels.push_back(channel);
+		else upperYChannels.push_back(channel);
+
+		if (edepMeV > bestEdep[quadrant]) {
+			bestEdep[quadrant] = edepMeV;
+			bestChannel[quadrant] = channel;
+		}
+	}
+
+	const bool lowerXHit = !lowerXChannels.empty();
+	const bool lowerYHit = !lowerYChannels.empty();
+	const bool upperXHit = !upperXChannels.empty();
+	const bool upperYHit = !upperYChannels.empty();
+
+	json hodo;
+	hodo["detector_id"] = detId;
+	hodo["total_active_bars"] = 64;
+	hodo["bars_per_axis"] = 16;
+	hodo["pixels_per_module"] = 256;
+	hodo["active_hit_threshold_MeV"] = activeHitThresholdMeV;
+	hodo["active_hits"] = activeHits;
+	hodo["lower_x_channels"] = lowerXChannels;
+	hodo["lower_y_channels"] = lowerYChannels;
+	hodo["upper_x_channels"] = upperXChannels;
+	hodo["upper_y_channels"] = upperYChannels;
+	hodo["lower_x_hit"] = lowerXHit;
+	hodo["lower_y_hit"] = lowerYHit;
+	hodo["upper_x_hit"] = upperXHit;
+	hodo["upper_y_hit"] = upperYHit;
+	hodo["lower_xy_coincidence"] = lowerXHit && lowerYHit;
+	hodo["upper_xy_coincidence"] = upperXHit && upperYHit;
+	hodo["four_plane_coincidence"] = lowerXHit && lowerYHit && upperXHit && upperYHit;
+
+	if (lowerXHit && lowerYHit) {
+		hodo["lower_pixel_x_index"] = bestChannel[0];
+		hodo["lower_pixel_y_index"] = bestChannel[1];
+		hodo["lower_pixel_id"] = bestChannel[0] + 16 * bestChannel[1];
+	}
+	else {
+		hodo["lower_pixel_x_index"] = nullptr;
+		hodo["lower_pixel_y_index"] = nullptr;
+		hodo["lower_pixel_id"] = nullptr;
+	}
+
+	if (upperXHit && upperYHit) {
+		hodo["upper_pixel_x_index"] = bestChannel[2];
+		hodo["upper_pixel_y_index"] = bestChannel[3];
+		hodo["upper_pixel_id"] = bestChannel[2] + 16 * bestChannel[3];
+	}
+	else {
+		hodo["upper_pixel_x_index"] = nullptr;
+		hodo["upper_pixel_y_index"] = nullptr;
+		hodo["upper_pixel_id"] = nullptr;
+	}
+
+	jEvent["HodoscopeNA64Mini"] = hodo;
 }

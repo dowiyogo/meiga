@@ -7,7 +7,7 @@
 	"Output" : 
 	{
 		"OutputFile" : "./output.json",
-		"CompressOutput" : true,
+		"CompressOutput" : false,
 		"SaveInput" : true,
 		
 		"SaveCounts" : true,
@@ -22,7 +22,7 @@
 		"SimulationMode" : "eFast",
 		"GeoVisOn" : false,
 		"TrajVisOn" : false,
-		"CheckOverlaps" : false,
+		"CheckOverlaps" : true,
 		"Verbosity" : 1,
 		"RenderFile" : "VRML2FILE",
 		"PhysicsName" : "QGSP_BERT_HP"

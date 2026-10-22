@@ -55,8 +55,9 @@ G4HodoscopeRunAction::EndOfRunAction(const G4Run* aRun)
 			nBars = scintDet->GetNBars();
 		}
 
-		// initialize string to 0s. total number of bars x2 since is a grid of 2 x NBars
-		string binaryString(2*nBars, '0');
+		// Legacy hodoscopes use 2 x NBars; NA64-mini is one detector with 64 active bars.
+		const int binaryCounterSize = (currDet.GetName() == "HodoscopeNA64Mini") ? 64 : 2*nBars;
+		string binaryString(binaryCounterSize, '0');
 		
 		// loop over optical devices (only in Full mode)
 		if (fEvent.GetSimData().GetSimulationMode() == SimData::SimulationMode::eFull) {
@@ -81,7 +82,9 @@ G4HodoscopeRunAction::EndOfRunAction(const G4Run* aRun)
 		}
 
 		for (int hitBarIndex : detSimData.GetHitBarIndices()) {
-	        binaryString[hitBarIndex-1] = '1'; // Set the bit at hitBarIndex to 1
+			if (hitBarIndex > 0 && hitBarIndex <= static_cast<int>(binaryString.size())) {
+				binaryString[hitBarIndex-1] = '1'; // Set the bit at hitBarIndex to 1
+			}
 	  }
 
 	  detSimData.AddBinaryCounter(binaryString);

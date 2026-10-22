@@ -36,6 +36,8 @@ class DataWriter {
 
 		// for scintillator bar counters
 		static void SaveBinaryCounter(nlohmann::ordered_json& jEvent, const DetectorSimData& sim, int detId, size_t eventId);
+
+		static void SaveNA64MiniHodoscope(nlohmann::ordered_json& jEvent, const DetectorSimData& sim, int detId, size_t eventId);
 };
 
 #endif

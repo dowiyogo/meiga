@@ -10,4 +10,8 @@ install
 src/.vscode/
 src/_cmake/
 CMakeCache.txt
-__pycache__
+__pycache__/
+.pytest_cache/
+characterization/results/
+diagnostics/*.csv
+diagnostics/*.json

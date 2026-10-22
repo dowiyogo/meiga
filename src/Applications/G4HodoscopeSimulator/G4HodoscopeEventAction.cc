@@ -49,11 +49,11 @@ G4HodoscopeEventAction::EndOfEventAction(const G4Event*)
 		cout << "Detector " << currDet.GetId() << " total Energy Deposit = " << totalEdep / CLHEP::MeV << " MeV" << endl;
 		// set it to the deposited energy vector
 		detSimData.SetEnergyDeposit(totalEdep);
+		detSimData.EndBarEvent();
 		// clear total energy deposit after the event is terminated to reset counter
 		detSimData.ClearTotalEnergyDeposit();
 
 	}
 
 }
-
 

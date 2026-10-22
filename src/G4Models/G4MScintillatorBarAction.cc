@@ -6,6 +6,7 @@
 #include <G4Step.hh>
 #include <G4Track.hh>
 #include <G4TouchableHistory.hh>
+#include <limits>
 
 
 using namespace std;
@@ -36,6 +37,7 @@ void
 G4MScintillatorBarAction::Initialize(G4HCofThisEvent* const /*hce*/)
 {
 	fBarEdep = 0;
+	fFirstHitTime = std::numeric_limits<double>::max();
 }
 
 void
@@ -45,6 +47,10 @@ G4MScintillatorBarAction::EndOfEvent(G4HCofThisEvent* const /*hce*/)
 	DetectorSimData& detSimData = fEvent.GetSimData().GetDetectorSimData(fDetectorId);
 	// adding energy deposited at barId in this event
 	detSimData.AddEnergyDeposit(fBarEdep);
+	detSimData.AddBarEnergyDeposit(fBarId, fBarEdep);
+	if (fFirstHitTime < std::numeric_limits<double>::max()) {
+		detSimData.AddBarFirstTime(fBarId, fFirstHitTime);
+	}
 
 }
 
@@ -67,6 +73,9 @@ G4MScintillatorBarAction::ProcessHits(G4Step* const step, G4TouchableHistory* co
 	if (trackId == 1) {
 		detSimData.AddHitBarIndex(fBarId);
 		fBarEdep += step->GetTotalEnergyDeposit();
+		if (step->GetPreStepPoint()->GetGlobalTime() < fFirstHitTime) {
+			fFirstHitTime = step->GetPreStepPoint()->GetGlobalTime();
+		}
 	}
 
 	return true;

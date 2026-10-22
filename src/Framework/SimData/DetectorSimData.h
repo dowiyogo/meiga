@@ -68,6 +68,14 @@ class DetectorSimData
 		const std::vector<std::string>& GetBinaryCounter() const { return fBinaryCounter; }
 		bool HasBinaryCounter() const { return !fBinaryCounter.empty(); }
 
+		void AddBarEnergyDeposit(const int barId, const double eDep);
+		void AddBarFirstTime(const int barId, const double time);
+		void EndBarEvent();
+		const std::vector<std::map<int, double>>& GetBarEnergyDeposit() const { return fBarEnergyDeposit; }
+		const std::vector<std::map<int, double>>& GetBarFirstTime() const { return fBarFirstTime; }
+		bool HasBarEnergyDeposit() const { return !fBarEnergyDeposit.empty(); }
+		bool HasBarFirstTime() const { return !fBarFirstTime.empty(); }
+
 
 	private:
 
@@ -91,6 +99,11 @@ class DetectorSimData
 		// vectors to store hits at scintillator bars
 		std::vector<int> fHitBarIndices;
 		std::vector<std::string> fBinaryCounter;
+
+		std::map<int, double> fCurrentBarEnergyDeposit;
+		std::map<int, double> fCurrentBarFirstTime;
+		std::vector<std::map<int, double>> fBarEnergyDeposit;
+		std::vector<std::map<int, double>> fBarFirstTime;
 };
 
 #endif

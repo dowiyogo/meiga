@@ -211,6 +211,12 @@ void Scintillator::SetDetectorProperties(const boost::property_tree::ptree &aTre
 			fOverwrittenPropertiesVector.push_back(xmlLabel);
 			SetNPanels(value);
 		}
+		else if (xmlLabel == "hodoscopeModel" ||
+		         xmlLabel == "hodoscope_material_detail" ||
+		         xmlLabel == "lower_module_reflector" ||
+		         xmlLabel == "upper_module_reflector") {
+			continue;
+		}
 		else {
 			ostringstream msg;
 			msg << xmlLabel << " is not a property of detector " << TypeToString(fType) << ". Skipping...";

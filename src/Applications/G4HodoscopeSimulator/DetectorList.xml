@@ -2,34 +2,26 @@
 
 <detectorList>
 
-	<injectionMode type="eCircle">
-		<x unit="m"> 0 </x>
-		<y unit="m"> 0 </y>
-		<z unit="m"> 0 </z>
-		<radius unit="m"> 0.25 </radius>
-		<height unit="m"> 1.5 </height> 
+	<injectionMode type="eVertical">
+		<x unit="mm"> 0 </x>
+		<y unit="mm"> 0 </y>
+		<z unit="mm"> 150 </z>
+		<radius unit="mm"> 25 </radius>
+		<height unit="mm"> 150 </height>
 	</injectionMode>
 
 	<detector id="0" type="eHodoscope">
-		<x unit="m"> 0.0 </x>
-		<y unit="m"> 0.0 </y>
-		<z unit="m"> 0.0 </z>
-
+		<hodoscopeModel>NA64Mini</hodoscopeModel>
+		<hodoscope_material_detail>active_only</hodoscope_material_detail>
+		<lower_module_reflector>VikuitiESR</lower_module_reflector>
+		<upper_module_reflector>TiO2Paint</upper_module_reflector>
+		<x unit="mm"> 0.0 </x>
+		<y unit="mm"> 0.0 </y>
+		<z unit="mm"> 0.0 </z>
+		<numberOfBars>16</numberOfBars>
+		<barLength unit="mm">75.0</barLength>
+		<barWidth unit="mm">3.0</barWidth>
+		<barThickness unit="mm">1.0</barThickness>
 	</detector>
-
-	<detector id="1" type="eHodoscope">
-		<x unit="m"> 0.0 </x>
-		<y unit="m"> 0.0 </y>
-		<z unit="m"> 1.0 </z>
-
-	</detector>
-
-	<detector id="2" type="eHodoscope">
-		<x unit="m"> 0.0 </x>
-		<y unit="m"> 0.0 </y>
-		<z unit="m"> -1.0 </z>
-
-	</detector>
-
 
 </detectorList>
