@@ -1,0 +1,25 @@
+{
+  "Input": {
+    "Mode": "UseEcoMug",
+    "InputNParticles": 10
+  },
+  "Output": {
+    "OutputFile": "./trajectory_output.json",
+    "CompressOutput": false,
+    "SaveInput": true,
+    "SaveCounts": true,
+    "SaveEnergy": true,
+    "SaveCharge": false,
+    "SavePETimeDistribution": false
+  },
+  "DetectorList": "./DetectorList.xml",
+  "Simulation": {
+    "SimulationMode": "eFast",
+    "GeoVisOn": true,
+    "TrajVisOn": true,
+    "CheckOverlaps": true,
+    "Verbosity": 0,
+    "RenderFile": "VRML2FILE",
+    "PhysicsName": "QGSP_BERT_HP"
+  }
+}

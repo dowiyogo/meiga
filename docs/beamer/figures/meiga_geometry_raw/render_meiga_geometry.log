@@ -1,0 +1,1086 @@
+Rendering Geant4/Meiga geometry assets
+
+$ cmake -S /mnt/d/hodo/meiga/src -B /mnt/d/hodo/meiga/build
+-- Geant4 include directories: /opt/hep/geant4/include/Geant4
+-- Configuring done (6.6s)
+-- Generating done (2.7s)
+-- Build files have been written to: /mnt/d/hodo/meiga/build
+
+$ cmake --build /mnt/d/hodo/meiga/build --target G4HodoscopeSimulator -j2
+gmake[1]: Entering directory '/mnt/d/hodo/meiga/build'
+gmake[2]: Entering directory '/mnt/d/hodo/meiga/build'
+gmake[3]: Entering directory '/mnt/d/hodo/meiga/build'
+gmake[4]: Entering directory '/mnt/d/hodo/meiga/build'
+gmake[4]: Entering directory '/mnt/d/hodo/meiga/build'
+gmake[4]: Leaving directory '/mnt/d/hodo/meiga/build'
+[  6%] Built target meiga_io
+gmake[4]: Leaving directory '/mnt/d/hodo/meiga/build'
+[ 20%] Built target meiga_utilities
+gmake[4]: Entering directory '/mnt/d/hodo/meiga/build'
+gmake[4]: Leaving directory '/mnt/d/hodo/meiga/build'
+[ 60%] Built target meiga_g4models
+gmake[4]: Entering directory '/mnt/d/hodo/meiga/build'
+gmake[4]: Leaving directory '/mnt/d/hodo/meiga/build'
+[ 68%] Built target meiga_framework_simdata
+gmake[4]: Entering directory '/mnt/d/hodo/meiga/build'
+gmake[4]: Leaving directory '/mnt/d/hodo/meiga/build'
+[ 76%] Built target meiga_framework_detector
+gmake[4]: Entering directory '/mnt/d/hodo/meiga/build'
+gmake[4]: Leaving directory '/mnt/d/hodo/meiga/build'
+[ 80%] Built target meiga_framework_event
+gmake[4]: Entering directory '/mnt/d/hodo/meiga/build'
+gmake[4]: Leaving directory '/mnt/d/hodo/meiga/build'
+[ 84%] Built target meiga_framework_configmanager
+gmake[4]: Entering directory '/mnt/d/hodo/meiga/build'
+gmake[4]: Leaving directory '/mnt/d/hodo/meiga/build'
+[100%] Built target G4HodoscopeSimulator
+gmake[3]: Leaving directory '/mnt/d/hodo/meiga/build'
+gmake[2]: Leaving directory '/mnt/d/hodo/meiga/build'
+gmake[1]: Leaving directory '/mnt/d/hodo/meiga/build'
+	
+  _______ _            __  __      _                    
+ |__   __| |          |  \/  |    (_)                   
+    | |  | |__   ___  | \  / | ___ _  __ _  __ _        
+    | |  | '_ \ / _ \ | |\/| |/ _ \ |/ _` |/ _` |       
+    | |  | | | |  __/ | |  | |  __/ | (_| | (_| |       
+  __|_|_ |_| |_|\___| |_|  |_|\___|_|\__, |\__,_|  _    
+ |  ____|                             __/ |       | |   
+ | |__ _ __ __ _ _ __ ___   _____    |___/__  _ __| | __
+ |  __| '__/ _` | '_ ` _ \ / _ \ \ /\ / / _ \| '__| |/ /
+ | |  | | | (_| | | | | | |  __/\ V  V / (_) | |  |   < 
+ |_|  |_|  \__,_|_| |_| |_|\___| \_/\_/ \___/|_|  |_|\_\
+                                                        
+	
+Version: 3.0 (2024)
+Author: Alvaro Taboada Nunez
+GitHub: https://github.com/ataboadanunez/meiga
+
+[INFO] ReadConfigurationFile: Reading configuration file: ./G4HodoscopeSimulator_geometry.json
+[WARNING] ReadConfigurationFile: Selected InputMode = eUseEcoMug. An input number of particles is needed.
+[INFO] PrintConfig: Using the following configuration:
+==================================
+ ------------- Input --------------
+Input Mode = UseEcoMug
+InputNParticles = 1
+ ------------- Output -------------
+OutputFile = ./geometry_output.json
+Compress Output = no
+Save Input = yes
+Save PE Time distribution (components) = no (no)
+Save Energy Deposit (components) = yes (no)
+Save Charge = no
+Save Bar Counts = yes
+ -------- Geant4 Settings ---------
+VisualizeGeometry = yes
+VisualizeTrajectory = no
+RenderFile = VRML2FILE
+PhysicsList = QGSP_BERT_HP
+CheckOverlaps = yes
+==================================
+==================================
+
+[INFO] ReadDetectorList: Reading DetectorList File ./DetectorList.xml
+Using the following detector configuration: 
+===========================================
+---------- Particle Injection ------------- 
+Injection Mode: eVertical
+Origin of injection coordinates: 
+(x0, y0, z0) = (0, 0, 0.15) m
+Injection Radius = 0.025 m
+Injection Height = 0.15 m
+Injection MinTheta = 0 deg
+Injection MaxTheta = 90 deg
+Injection MinPhi = 0 deg
+Injection MaxPhi = 360 deg
+===========================================
+===========================================
+
+------------ Detector Info -------------- 
+Reading configuration of detector eHodoscope with ID = 0
+[INFO] SetDefaultProperties: Setting default properties from file /mnt/d/hodo/meiga/src/Config/DetectorProperties.xml
+[INFO] SetDetectorProperties: Detector position: 
+  0.000000
+  0.000000
+  0.000000
+[INFO] SetDetectorProperties: Overwritten properties for detector eHodoscope
+  numberOfBars
+  barLength
+  barWidth
+  barThickness
+===========================================
+===========================================
+[INFO] RunSimulation: Number of particles to be simulated: 1
+
+**************************************************************
+ Geant4 version Name: geant4-11-04 [MT]   (5-December-2025)
+                       Copyright : Geant4 Collaboration
+                      References : NIM A 506 (2003), 250-303
+                                 : IEEE-TNS 53 (2006), 270-278
+                                 : NIM A 835 (2016), 186-225
+                             WWW : http://geant4.org/
+**************************************************************
+
+[INFO] PrimaryGenerator: SaveInput = yes
+[WARNING] PrimaryGenerator: Primary generation using EcoMug. Only muons will be generated!
+[INFO] G4HodoscopeSteppingAction: Running Simulation in Fast mode: Optical photons will be killed!
+G4OpticalSurface: data file /opt/hep/geant4/share/Geant4/data/RealSurface2.2/GroundTyvek.z successfully read in.
+LUT - data file: GroundTyvek.z read in! 
+[INFO] BuildDetector: Building NA64-mini hodoscope with 64 active BC-408 bars
+Checking overlaps for volume LOWER_X_00:1 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_00
+Checking overlaps for volume LOWER_X_01:2 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_01
+Checking overlaps for volume LOWER_X_02:3 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_02
+Checking overlaps for volume LOWER_X_03:4 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_03
+Checking overlaps for volume LOWER_X_04:5 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_04
+Checking overlaps for volume LOWER_X_05:6 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_05
+Checking overlaps for volume LOWER_X_06:7 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_06
+Checking overlaps for volume LOWER_X_07:8 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_07
+Checking overlaps for volume LOWER_X_08:9 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_08
+Checking overlaps for volume LOWER_X_09:10 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_09
+Checking overlaps for volume LOWER_X_10:11 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_10
+Checking overlaps for volume LOWER_X_11:12 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_11
+Checking overlaps for volume LOWER_X_12:13 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_12
+Checking overlaps for volume LOWER_X_13:14 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_13
+Checking overlaps for volume LOWER_X_14:15 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_14
+Checking overlaps for volume LOWER_X_15:16 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_15
+Checking overlaps for volume LOWER_Y_00:17 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_00
+Checking overlaps for volume LOWER_Y_01:18 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_01
+Checking overlaps for volume LOWER_Y_02:19 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_02
+Checking overlaps for volume LOWER_Y_03:20 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_03
+Checking overlaps for volume LOWER_Y_04:21 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_04
+Checking overlaps for volume LOWER_Y_05:22 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_05
+Checking overlaps for volume LOWER_Y_06:23 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_06
+Checking overlaps for volume LOWER_Y_07:24 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_07
+Checking overlaps for volume LOWER_Y_08:25 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_08
+Checking overlaps for volume LOWER_Y_09:26 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_09
+Checking overlaps for volume LOWER_Y_10:27 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_10
+Checking overlaps for volume LOWER_Y_11:28 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_11
+Checking overlaps for volume LOWER_Y_12:29 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_12
+Checking overlaps for volume LOWER_Y_13:30 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_13
+Checking overlaps for volume LOWER_Y_14:31 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_14
+Checking overlaps for volume LOWER_Y_15:32 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_15
+Checking overlaps for volume UPPER_X_00:33 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_00
+Checking overlaps for volume UPPER_X_01:34 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_01
+Checking overlaps for volume UPPER_X_02:35 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_02
+Checking overlaps for volume UPPER_X_03:36 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_03
+Checking overlaps for volume UPPER_X_04:37 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_04
+Checking overlaps for volume UPPER_X_05:38 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_05
+Checking overlaps for volume UPPER_X_06:39 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_06
+Checking overlaps for volume UPPER_X_07:40 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_07
+Checking overlaps for volume UPPER_X_08:41 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_08
+Checking overlaps for volume UPPER_X_09:42 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_09
+Checking overlaps for volume UPPER_X_10:43 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_10
+Checking overlaps for volume UPPER_X_11:44 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_11
+Checking overlaps for volume UPPER_X_12:45 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_12
+Checking overlaps for volume UPPER_X_13:46 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_13
+Checking overlaps for volume UPPER_X_14:47 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_14
+Checking overlaps for volume UPPER_X_15:48 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_15
+Checking overlaps for volume UPPER_Y_00:49 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_00
+Checking overlaps for volume UPPER_Y_01:50 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_01
+Checking overlaps for volume UPPER_Y_02:51 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_02
+Checking overlaps for volume UPPER_Y_03:52 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_03
+Checking overlaps for volume UPPER_Y_04:53 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_04
+Checking overlaps for volume UPPER_Y_05:54 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_05
+Checking overlaps for volume UPPER_Y_06:55 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_06
+Checking overlaps for volume UPPER_Y_07:56 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_07
+Checking overlaps for volume UPPER_Y_08:57 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_08
+Checking overlaps for volume UPPER_Y_09:58 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_09
+Checking overlaps for volume UPPER_Y_10:59 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_10
+Checking overlaps for volume UPPER_Y_11:60 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_11
+Checking overlaps for volume UPPER_Y_12:61 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_12
+Checking overlaps for volume UPPER_Y_13:62 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_13
+Checking overlaps for volume UPPER_Y_14:63 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_14
+Checking overlaps for volume UPPER_Y_15:64 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_15
+OpWLS is created 
+Cerenkov is created.
+OpAbsorption is created 
+OpRayleigh is created 
+OpMieHG is created 
+OpBoundary is created 
+### Birks coefficients used in run time
+G4PhysicsListHelper::RegisterProcess :RadioactiveDecay for GenericIon with  type/subtype =6/210  is has same subType as RadioactiveDecay for GenericIon
+It will not be added !!
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : Run0111
+      issued by : G4PhysicsListHelper::RegisterProcess
+Duplication of processes
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+G4PhysicsListHelper::RegisterProcess :RadioactiveDecay for triton with  type/subtype =6/210  is has same subType as RadioactiveDecay for triton
+It will not be added !!
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : Run0111
+      issued by : G4PhysicsListHelper::RegisterProcess
+Duplication of processes
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+Visualization Manager instantiating with verbosity "warnings (3)"...
+Visualization Manager initialising...
+Registering graphics systems...
+
+You have successfully registered the following graphics systems.
+Registered graphics systems are:
+  ASCIITree (ATree)
+  DAWNFILE (DAWNFILE)
+  RayTracer (RT)
+  VRML2FILE (VRML2FILE)
+  gMocrenFile (gMocrenFile)
+  TOOLSSG_OFFSCREEN (TSG_OFFSCREEN, TSG_FILE)
+  RayTracerX (RTX)
+  RayTracerQt (RTQt)
+  TOOLSSG_X11_GLES (TSG_X11_GLES, TSGX11, TSG_QT_GLES_FALLBACK)
+  TOOLSSG_X11_ZB (TSG_X11_ZB, TSGX11ZB)
+  TOOLSSG_QT_GLES (TSG_QT_GLES, TSGQt, TSG, OGL)
+  TOOLSSG_QT_ZB (TSG_QT_ZB, TSGQtZB, TSGZB)
+You may choose a graphics system (driver) with a parameter of
+the command "/vis/open" or "/vis/sceneHandler/create",
+or you may omit the driver parameter and choose at run time:
+- by argument in the construction of G4VisExecutive;
+- by environment variable "G4VIS_DEFAULT_DRIVER";
+- by entry in "~/.g4session";
+- by build flags.
+- Note: This feature is not allowed in batch mode.
+For further information see "examples/basic/B1/exampleB1.cc"
+and "vis.mac".
+
+Registering model factories...
+
+You have successfully registered the following model factories.
+Registered model factories:
+  generic
+  drawByAttribute
+  drawByCharge
+  drawByOriginVolume
+  drawByParticleID
+  drawByEncounteredVolume
+
+Registered models:
+  None
+
+Registered filter factories:
+  attributeFilter
+  chargeFilter
+  originVolumeFilter
+  particleFilter
+  encounteredVolumeFilter
+
+Registered filters:
+  None
+
+You have successfully registered the following user vis actions.
+Run Duration User Vis Actions: none
+End of Event User Vis Actions: none
+End of Run User Vis Actions: none
+
+Some /vis commands (optionally) take a string to specify colour.
+"/vis/list" to see available colours.
+Issue /vis/viewer/refresh or flush to see effect.
+Issue /vis/viewer/refresh or flush to see effect.
+Issue /vis/viewer/refresh or flush to see effect.
+
+=======================================================
+======       ParticleHP Physics Parameters     ========
+=======================================================
+ Use only photo-evaporation      0
+ Skip missing isotopes           0
+ Neglect Doppler                 0
+ Do not adjust final state       0
+ Produce fission fragments       0
+ Use WendtFissionModel           0
+ Use NRESP71Model                0
+ Use DBRC                        0
+ PHP use Poisson                 0
+ PHP check                       1
+ CHECK HP NAMES                  0
+ Enable DEBUG                    0
+ Use probability tables from     
+=======================================================
+
+G4VisManager: Using G4TrajectoryDrawByCharge as fallback trajectory model.
+See commands in /vis/modeling/trajectories/ for other options.
+[INFO] ComputeInjectionPosition: Injecting particle vertically over a circle of radius: 0.025 m at height: 0.15
+[INFO] ComputeInjectionPosition: Injecting particle at position: 
+  3.810127
+  9.201813
+  150.000000
+[INFO] GeneratePrimaries: Primary Particle Information: 
+Particle name: mu-, ID: 13
+Particle position: (0.381013, 0.920181, 15) cm
+Particle direction: (0, 0, -0.587909) GeV
+Particle (Theta, Phi): (2.82587, 1.79617) rad
+Particle Momentum: 0.587909 GeV 
+Particle Kinetic Energy: 0.49167 GeV 
+
+Detector 0 total Energy Deposit = 1.00534 MeV
+===========================================
+Output VRML 2.0 file: g4_00.wrl
+Maximum number of files in the destination directory: 100
+  (Customizable with the environment variable: G4VRMLFILE_MAX_FILE_NUM) 
+===========================================
+*** VRML 2.0 File  g4_00.wrl  is generated.
+MESSAGE from VRML2FILE driver:
+    Set an environmental variable  G4VRMLFILE_VIEWER
+    if you want to visualize the generated VRML file
+    automatically.  For example, 
+    setenv  G4VRMLFILE_VIEWER  vrwave 
+ALSO you may change the file header with G4VRMLFILE_HEADER
+    or the whole filename with G4VRMLFILE_FILE_NAME
+1 event has been kept for refreshing and/or reviewing.
+  "/vis/reviewKeptEvents" to review one by one.
+  To see accumulated, "/vis/enable", then "/vis/viewer/flush" or "/vis/viewer/rebuild".
+Graphics systems deleted.
+Visualization Manager deleting...
+[INFO] RunSimulation: Geant4 Simulation ended successfully.
+[INFO] FileWriter: Writing output to file ./geometry_output.json
+Elapsed time: 4.20 seconds
+Generated /mnt/d/hodo/meiga/docs/beamer/figures/meiga_geometry_raw/g4_00.wrl
+Trying Castle Model Viewer / input-first: /home/reriosto/castle-model-viewer/castle-model-viewer
+Dropped Escape call with ulEscapeCode : 0x03007703
+
+(castle-model-viewer:17322): Gdk-WARNING **: 22:22:49.262: gdk_window_set_icon_list: icons too large
+Castle Model Viewer: rendered /mnt/d/hodo/meiga/docs/beamer/figures/meiga_geometry_view_front.png
+Trying Castle Model Viewer / input-first: /home/reriosto/castle-model-viewer/castle-model-viewer
+Dropped Escape call with ulEscapeCode : 0x03007703
+
+(castle-model-viewer:17356): Gdk-WARNING **: 22:22:50.923: gdk_window_set_icon_list: icons too large
+Castle Model Viewer: rendered /mnt/d/hodo/meiga/docs/beamer/figures/meiga_geometry_view_oblique.png
+Trying Castle Model Viewer / input-first: /home/reriosto/castle-model-viewer/castle-model-viewer
+Dropped Escape call with ulEscapeCode : 0x03007703
+
+(castle-model-viewer:17384): Gdk-WARNING **: 22:22:52.611: gdk_window_set_icon_list: icons too large
+Castle Model Viewer: rendered /mnt/d/hodo/meiga/docs/beamer/figures/meiga_geometry_view_side.png
+	
+  _______ _            __  __      _                    
+ |__   __| |          |  \/  |    (_)                   
+    | |  | |__   ___  | \  / | ___ _  __ _  __ _        
+    | |  | '_ \ / _ \ | |\/| |/ _ \ |/ _` |/ _` |       
+    | |  | | | |  __/ | |  | |  __/ | (_| | (_| |       
+  __|_|_ |_| |_|\___| |_|  |_|\___|_|\__, |\__,_|  _    
+ |  ____|                             __/ |       | |   
+ | |__ _ __ __ _ _ __ ___   _____    |___/__  _ __| | __
+ |  __| '__/ _` | '_ ` _ \ / _ \ \ /\ / / _ \| '__| |/ /
+ | |  | | | (_| | | | | | |  __/\ V  V / (_) | |  |   < 
+ |_|  |_|  \__,_|_| |_| |_|\___| \_/\_/ \___/|_|  |_|\_\
+                                                        
+	
+Version: 3.0 (2024)
+Author: Alvaro Taboada Nunez
+GitHub: https://github.com/ataboadanunez/meiga
+
+[INFO] ReadConfigurationFile: Reading configuration file: ./G4HodoscopeSimulator_trajectories.json
+[WARNING] ReadConfigurationFile: Selected InputMode = eUseEcoMug. An input number of particles is needed.
+[INFO] PrintConfig: Using the following configuration:
+==================================
+ ------------- Input --------------
+Input Mode = UseEcoMug
+InputNParticles = 10
+ ------------- Output -------------
+OutputFile = ./trajectory_output.json
+Compress Output = no
+Save Input = yes
+Save PE Time distribution (components) = no (no)
+Save Energy Deposit (components) = yes (no)
+Save Charge = no
+Save Bar Counts = yes
+ -------- Geant4 Settings ---------
+VisualizeGeometry = yes
+VisualizeTrajectory = yes
+RenderFile = VRML2FILE
+PhysicsList = QGSP_BERT_HP
+CheckOverlaps = yes
+==================================
+==================================
+
+[INFO] ReadDetectorList: Reading DetectorList File ./DetectorList.xml
+Using the following detector configuration: 
+===========================================
+---------- Particle Injection ------------- 
+Injection Mode: eVertical
+Origin of injection coordinates: 
+(x0, y0, z0) = (0, 0, 0.15) m
+Injection Radius = 0.025 m
+Injection Height = 0.15 m
+Injection MinTheta = 0 deg
+Injection MaxTheta = 90 deg
+Injection MinPhi = 0 deg
+Injection MaxPhi = 360 deg
+===========================================
+===========================================
+
+------------ Detector Info -------------- 
+Reading configuration of detector eHodoscope with ID = 0
+[INFO] SetDefaultProperties: Setting default properties from file /mnt/d/hodo/meiga/src/Config/DetectorProperties.xml
+[INFO] SetDetectorProperties: Detector position: 
+  0.000000
+  0.000000
+  0.000000
+[INFO] SetDetectorProperties: Overwritten properties for detector eHodoscope
+  numberOfBars
+  barLength
+  barWidth
+  barThickness
+===========================================
+===========================================
+[INFO] RunSimulation: Number of particles to be simulated: 10
+
+**************************************************************
+ Geant4 version Name: geant4-11-04 [MT]   (5-December-2025)
+                       Copyright : Geant4 Collaboration
+                      References : NIM A 506 (2003), 250-303
+                                 : IEEE-TNS 53 (2006), 270-278
+                                 : NIM A 835 (2016), 186-225
+                             WWW : http://geant4.org/
+**************************************************************
+
+[INFO] PrimaryGenerator: SaveInput = yes
+[WARNING] PrimaryGenerator: Primary generation using EcoMug. Only muons will be generated!
+[INFO] G4HodoscopeSteppingAction: Running Simulation in Fast mode: Optical photons will be killed!
+G4OpticalSurface: data file /opt/hep/geant4/share/Geant4/data/RealSurface2.2/GroundTyvek.z successfully read in.
+LUT - data file: GroundTyvek.z read in! 
+[INFO] BuildDetector: Building NA64-mini hodoscope with 64 active BC-408 bars
+Checking overlaps for volume LOWER_X_00:1 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_00
+Checking overlaps for volume LOWER_X_01:2 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_01
+Checking overlaps for volume LOWER_X_02:3 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_02
+Checking overlaps for volume LOWER_X_03:4 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_03
+Checking overlaps for volume LOWER_X_04:5 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_04
+Checking overlaps for volume LOWER_X_05:6 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_05
+Checking overlaps for volume LOWER_X_06:7 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_06
+Checking overlaps for volume LOWER_X_07:8 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_07
+Checking overlaps for volume LOWER_X_08:9 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_08
+Checking overlaps for volume LOWER_X_09:10 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_09
+Checking overlaps for volume LOWER_X_10:11 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_10
+Checking overlaps for volume LOWER_X_11:12 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_11
+Checking overlaps for volume LOWER_X_12:13 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_12
+Checking overlaps for volume LOWER_X_13:14 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_13
+Checking overlaps for volume LOWER_X_14:15 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_14
+Checking overlaps for volume LOWER_X_15:16 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_X_15
+Checking overlaps for volume LOWER_Y_00:17 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_00
+Checking overlaps for volume LOWER_Y_01:18 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_01
+Checking overlaps for volume LOWER_Y_02:19 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_02
+Checking overlaps for volume LOWER_Y_03:20 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_03
+Checking overlaps for volume LOWER_Y_04:21 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_04
+Checking overlaps for volume LOWER_Y_05:22 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_05
+Checking overlaps for volume LOWER_Y_06:23 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_06
+Checking overlaps for volume LOWER_Y_07:24 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_07
+Checking overlaps for volume LOWER_Y_08:25 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_08
+Checking overlaps for volume LOWER_Y_09:26 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_09
+Checking overlaps for volume LOWER_Y_10:27 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_10
+Checking overlaps for volume LOWER_Y_11:28 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_11
+Checking overlaps for volume LOWER_Y_12:29 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_12
+Checking overlaps for volume LOWER_Y_13:30 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_13
+Checking overlaps for volume LOWER_Y_14:31 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_14
+Checking overlaps for volume LOWER_Y_15:32 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/LOWER_Y_15
+Checking overlaps for volume UPPER_X_00:33 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_00
+Checking overlaps for volume UPPER_X_01:34 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_01
+Checking overlaps for volume UPPER_X_02:35 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_02
+Checking overlaps for volume UPPER_X_03:36 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_03
+Checking overlaps for volume UPPER_X_04:37 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_04
+Checking overlaps for volume UPPER_X_05:38 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_05
+Checking overlaps for volume UPPER_X_06:39 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_06
+Checking overlaps for volume UPPER_X_07:40 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_07
+Checking overlaps for volume UPPER_X_08:41 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_08
+Checking overlaps for volume UPPER_X_09:42 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_09
+Checking overlaps for volume UPPER_X_10:43 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_10
+Checking overlaps for volume UPPER_X_11:44 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_11
+Checking overlaps for volume UPPER_X_12:45 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_12
+Checking overlaps for volume UPPER_X_13:46 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_13
+Checking overlaps for volume UPPER_X_14:47 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_14
+Checking overlaps for volume UPPER_X_15:48 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_X_15
+Checking overlaps for volume UPPER_Y_00:49 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_00
+Checking overlaps for volume UPPER_Y_01:50 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_01
+Checking overlaps for volume UPPER_Y_02:51 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_02
+Checking overlaps for volume UPPER_Y_03:52 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_03
+Checking overlaps for volume UPPER_Y_04:53 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_04
+Checking overlaps for volume UPPER_Y_05:54 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_05
+Checking overlaps for volume UPPER_Y_06:55 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_06
+Checking overlaps for volume UPPER_Y_07:56 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_07
+Checking overlaps for volume UPPER_Y_08:57 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_08
+Checking overlaps for volume UPPER_Y_09:58 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_09
+Checking overlaps for volume UPPER_Y_10:59 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_10
+Checking overlaps for volume UPPER_Y_11:60 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_11
+Checking overlaps for volume UPPER_Y_12:61 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_12
+Checking overlaps for volume UPPER_Y_13:62 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_13
+Checking overlaps for volume UPPER_Y_14:63 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_14
+Checking overlaps for volume UPPER_Y_15:64 (G4Box) ... OK! 
+[INFO] G4MScintillatorBarAction: Registering Senstive Detector HodoscopeNA64Mini_0/UPPER_Y_15
+OpWLS is created 
+Cerenkov is created.
+OpAbsorption is created 
+OpRayleigh is created 
+OpMieHG is created 
+OpBoundary is created 
+### Birks coefficients used in run time
+G4PhysicsListHelper::RegisterProcess :RadioactiveDecay for GenericIon with  type/subtype =6/210  is has same subType as RadioactiveDecay for GenericIon
+It will not be added !!
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : Run0111
+      issued by : G4PhysicsListHelper::RegisterProcess
+Duplication of processes
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+G4PhysicsListHelper::RegisterProcess :RadioactiveDecay for triton with  type/subtype =6/210  is has same subType as RadioactiveDecay for triton
+It will not be added !!
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : Run0111
+      issued by : G4PhysicsListHelper::RegisterProcess
+Duplication of processes
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+Visualization Manager instantiating with verbosity "warnings (3)"...
+Visualization Manager initialising...
+Registering graphics systems...
+
+You have successfully registered the following graphics systems.
+Registered graphics systems are:
+  ASCIITree (ATree)
+  DAWNFILE (DAWNFILE)
+  RayTracer (RT)
+  VRML2FILE (VRML2FILE)
+  gMocrenFile (gMocrenFile)
+  TOOLSSG_OFFSCREEN (TSG_OFFSCREEN, TSG_FILE)
+  RayTracerX (RTX)
+  RayTracerQt (RTQt)
+  TOOLSSG_X11_GLES (TSG_X11_GLES, TSGX11, TSG_QT_GLES_FALLBACK)
+  TOOLSSG_X11_ZB (TSG_X11_ZB, TSGX11ZB)
+  TOOLSSG_QT_GLES (TSG_QT_GLES, TSGQt, TSG, OGL)
+  TOOLSSG_QT_ZB (TSG_QT_ZB, TSGQtZB, TSGZB)
+You may choose a graphics system (driver) with a parameter of
+the command "/vis/open" or "/vis/sceneHandler/create",
+or you may omit the driver parameter and choose at run time:
+- by argument in the construction of G4VisExecutive;
+- by environment variable "G4VIS_DEFAULT_DRIVER";
+- by entry in "~/.g4session";
+- by build flags.
+- Note: This feature is not allowed in batch mode.
+For further information see "examples/basic/B1/exampleB1.cc"
+and "vis.mac".
+
+Registering model factories...
+
+You have successfully registered the following model factories.
+Registered model factories:
+  generic
+  drawByAttribute
+  drawByCharge
+  drawByOriginVolume
+  drawByParticleID
+  drawByEncounteredVolume
+
+Registered models:
+  None
+
+Registered filter factories:
+  attributeFilter
+  chargeFilter
+  originVolumeFilter
+  particleFilter
+  encounteredVolumeFilter
+
+Registered filters:
+  None
+
+You have successfully registered the following user vis actions.
+Run Duration User Vis Actions: none
+End of Event User Vis Actions: none
+End of Run User Vis Actions: none
+
+Some /vis commands (optionally) take a string to specify colour.
+"/vis/list" to see available colours.
+Issue /vis/viewer/refresh or flush to see effect.
+Issue /vis/viewer/refresh or flush to see effect.
+Issue /vis/viewer/refresh or flush to see effect.
+Attributes available for modeling and filtering with
+  "/vis/modeling/trajectories/create/drawByAttribute" and
+  "/vis/filtering/trajectories/create/attributeFilter" commands:
+G4TrajectoriesModel:
+  Event ID (EventID): G4int
+  Run ID (RunID): G4int
+G4Trajectory:
+  Charge (Ch): unit: e+ (G4double)
+  Track ID (ID): G4int
+  Initial kinetic energy (IKE): G4BestUnit (G4double)
+  Initial momentum magnitude (IMag): G4BestUnit (G4double)
+  Initial momentum (IMom): G4BestUnit (G4ThreeVector)
+  No. of points (NTP): G4int
+  PDG Encoding (PDG): G4int
+  Parent ID (PID): G4int
+  Particle Name (PN): G4String
+G4TrajectoryPoint:
+  Position (Pos): G4BestUnit (G4ThreeVector)
+WARNING: Trajectory storing has been requested.  This action may be
+  reversed with "/tracking/storeTrajectory 0".
+
+=======================================================
+======       ParticleHP Physics Parameters     ========
+=======================================================
+ Use only photo-evaporation      0
+ Skip missing isotopes           0
+ Neglect Doppler                 0
+ Do not adjust final state       0
+ Produce fission fragments       0
+ Use WendtFissionModel           0
+ Use NRESP71Model                0
+ Use DBRC                        0
+ PHP use Poisson                 0
+ PHP check                       1
+ CHECK HP NAMES                  0
+ Enable DEBUG                    0
+ Use probability tables from     
+=======================================================
+
+G4VisManager: Using G4TrajectoryDrawByCharge as fallback trajectory model.
+See commands in /vis/modeling/trajectories/ for other options.
+[INFO] ComputeInjectionPosition: Injecting particle vertically over a circle of radius: 0.025 m at height: 0.15
+[INFO] ComputeInjectionPosition: Injecting particle at position: 
+  1.322855
+  -15.959248
+  150.000000
+[INFO] GeneratePrimaries: Primary Particle Information: 
+Particle name: mu+, ID: -13
+Particle position: (0.132286, -1.59592, 15) cm
+Particle direction: (0, 0, -0.478514) GeV
+Particle (Theta, Phi): (2.57302, 3.52795) rad
+Particle Momentum: 0.478514 GeV 
+Particle Kinetic Energy: 0.384382 GeV 
+
+Detector 0 total Energy Deposit = 1.04535 MeV
+===========================================
+Output VRML 2.0 file: g4_01.wrl
+Maximum number of files in the destination directory: 100
+  (Customizable with the environment variable: G4VRMLFILE_MAX_FILE_NUM) 
+===========================================
+*** VRML 2.0 File  g4_01.wrl  is generated.
+MESSAGE from VRML2FILE driver:
+    Set an environmental variable  G4VRMLFILE_VIEWER
+    if you want to visualize the generated VRML file
+    automatically.  For example, 
+    setenv  G4VRMLFILE_VIEWER  vrwave 
+ALSO you may change the file header with G4VRMLFILE_HEADER
+    or the whole filename with G4VRMLFILE_FILE_NAME
+1 event has been kept for refreshing and/or reviewing.
+  "/vis/reviewKeptEvents" to review one by one.
+  To see accumulated, "/vis/enable", then "/vis/viewer/flush" or "/vis/viewer/rebuild".
+[INFO] ComputeInjectionPosition: Injecting particle vertically over a circle of radius: 0.025 m at height: 0.15
+[INFO] ComputeInjectionPosition: Injecting particle at position: 
+  4.774425
+  22.120770
+  150.000000
+[INFO] GeneratePrimaries: Primary Particle Information: 
+Particle name: mu+, ID: -13
+Particle position: (0.477443, 2.21208, 15) cm
+Particle direction: (0, 0, -1.0135) GeV
+Particle (Theta, Phi): (2.18229, 3.74648) rad
+Particle Momentum: 1.0135 GeV 
+Particle Kinetic Energy: 0.913338 GeV 
+
+Detector 0 total Energy Deposit = 0.301007 MeV
+===========================================
+Output VRML 2.0 file: g4_02.wrl
+Maximum number of files in the destination directory: 100
+  (Customizable with the environment variable: G4VRMLFILE_MAX_FILE_NUM) 
+===========================================
+*** VRML 2.0 File  g4_02.wrl  is generated.
+MESSAGE from VRML2FILE driver:
+    Set an environmental variable  G4VRMLFILE_VIEWER
+    if you want to visualize the generated VRML file
+    automatically.  For example, 
+    setenv  G4VRMLFILE_VIEWER  vrwave 
+ALSO you may change the file header with G4VRMLFILE_HEADER
+    or the whole filename with G4VRMLFILE_FILE_NAME
+1 event has been kept for refreshing and/or reviewing.
+  "/vis/reviewKeptEvents" to review one by one.
+  To see accumulated, "/vis/enable", then "/vis/viewer/flush" or "/vis/viewer/rebuild".
+[INFO] ComputeInjectionPosition: Injecting particle vertically over a circle of radius: 0.025 m at height: 0.15
+[INFO] ComputeInjectionPosition: Injecting particle at position: 
+  -8.578834
+  -18.939895
+  150.000000
+[INFO] GeneratePrimaries: Primary Particle Information: 
+Particle name: mu-, ID: 13
+Particle position: (-0.857883, -1.89399, 15) cm
+Particle direction: (0, 0, -0.958831) GeV
+Particle (Theta, Phi): (2.08702, 3.76116) rad
+Particle Momentum: 0.958831 GeV 
+Particle Kinetic Energy: 0.858977 GeV 
+
+Detector 0 total Energy Deposit = 0.308478 MeV
+===========================================
+Output VRML 2.0 file: g4_03.wrl
+Maximum number of files in the destination directory: 100
+  (Customizable with the environment variable: G4VRMLFILE_MAX_FILE_NUM) 
+===========================================
+*** VRML 2.0 File  g4_03.wrl  is generated.
+MESSAGE from VRML2FILE driver:
+    Set an environmental variable  G4VRMLFILE_VIEWER
+    if you want to visualize the generated VRML file
+    automatically.  For example, 
+    setenv  G4VRMLFILE_VIEWER  vrwave 
+ALSO you may change the file header with G4VRMLFILE_HEADER
+    or the whole filename with G4VRMLFILE_FILE_NAME
+1 event has been kept for refreshing and/or reviewing.
+  "/vis/reviewKeptEvents" to review one by one.
+  To see accumulated, "/vis/enable", then "/vis/viewer/flush" or "/vis/viewer/rebuild".
+[INFO] ComputeInjectionPosition: Injecting particle vertically over a circle of radius: 0.025 m at height: 0.15
+[INFO] ComputeInjectionPosition: Injecting particle at position: 
+  -3.621389
+  12.948654
+  150.000000
+[INFO] GeneratePrimaries: Primary Particle Information: 
+Particle name: mu+, ID: -13
+Particle position: (-0.362139, 1.29487, 15) cm
+Particle direction: (0, 0, -0.949485) GeV
+Particle (Theta, Phi): (1.95483, 0.216283) rad
+Particle Momentum: 0.949485 GeV 
+Particle Kinetic Energy: 0.849687 GeV 
+
+Detector 0 total Energy Deposit = 1.05275 MeV
+===========================================
+Output VRML 2.0 file: g4_04.wrl
+Maximum number of files in the destination directory: 100
+  (Customizable with the environment variable: G4VRMLFILE_MAX_FILE_NUM) 
+===========================================
+*** VRML 2.0 File  g4_04.wrl  is generated.
+MESSAGE from VRML2FILE driver:
+    Set an environmental variable  G4VRMLFILE_VIEWER
+    if you want to visualize the generated VRML file
+    automatically.  For example, 
+    setenv  G4VRMLFILE_VIEWER  vrwave 
+ALSO you may change the file header with G4VRMLFILE_HEADER
+    or the whole filename with G4VRMLFILE_FILE_NAME
+1 event has been kept for refreshing and/or reviewing.
+  "/vis/reviewKeptEvents" to review one by one.
+  To see accumulated, "/vis/enable", then "/vis/viewer/flush" or "/vis/viewer/rebuild".
+[INFO] ComputeInjectionPosition: Injecting particle vertically over a circle of radius: 0.025 m at height: 0.15
+[INFO] ComputeInjectionPosition: Injecting particle at position: 
+  15.381721
+  13.046411
+  150.000000
+[INFO] GeneratePrimaries: Primary Particle Information: 
+Particle name: mu+, ID: -13
+Particle position: (1.53817, 1.30464, 15) cm
+Particle direction: (0, 0, -12.8948) GeV
+Particle (Theta, Phi): (2.25833, 1.19378) rad
+Particle Momentum: 12.8948 GeV 
+Particle Kinetic Energy: 12.7895 GeV 
+
+Detector 0 total Energy Deposit = 0.826862 MeV
+===========================================
+Output VRML 2.0 file: g4_05.wrl
+Maximum number of files in the destination directory: 100
+  (Customizable with the environment variable: G4VRMLFILE_MAX_FILE_NUM) 
+===========================================
+*** VRML 2.0 File  g4_05.wrl  is generated.
+MESSAGE from VRML2FILE driver:
+    Set an environmental variable  G4VRMLFILE_VIEWER
+    if you want to visualize the generated VRML file
+    automatically.  For example, 
+    setenv  G4VRMLFILE_VIEWER  vrwave 
+ALSO you may change the file header with G4VRMLFILE_HEADER
+    or the whole filename with G4VRMLFILE_FILE_NAME
+1 event has been kept for refreshing and/or reviewing.
+  "/vis/reviewKeptEvents" to review one by one.
+  To see accumulated, "/vis/enable", then "/vis/viewer/flush" or "/vis/viewer/rebuild".
+[INFO] ComputeInjectionPosition: Injecting particle vertically over a circle of radius: 0.025 m at height: 0.15
+[INFO] ComputeInjectionPosition: Injecting particle at position: 
+  -4.681082
+  0.486134
+  150.000000
+[INFO] GeneratePrimaries: Primary Particle Information: 
+Particle name: mu+, ID: -13
+Particle position: (-0.468108, 0.0486134, 15) cm
+Particle direction: (0, 0, -4.27238) GeV
+Particle (Theta, Phi): (2.94243, 3.83776) rad
+Particle Momentum: 4.27238 GeV 
+Particle Kinetic Energy: 4.16803 GeV 
+
+Detector 0 total Energy Deposit = 1.21448 MeV
+===========================================
+Output VRML 2.0 file: g4_06.wrl
+Maximum number of files in the destination directory: 100
+  (Customizable with the environment variable: G4VRMLFILE_MAX_FILE_NUM) 
+===========================================
+*** VRML 2.0 File  g4_06.wrl  is generated.
+MESSAGE from VRML2FILE driver:
+    Set an environmental variable  G4VRMLFILE_VIEWER
+    if you want to visualize the generated VRML file
+    automatically.  For example, 
+    setenv  G4VRMLFILE_VIEWER  vrwave 
+ALSO you may change the file header with G4VRMLFILE_HEADER
+    or the whole filename with G4VRMLFILE_FILE_NAME
+1 event has been kept for refreshing and/or reviewing.
+  "/vis/reviewKeptEvents" to review one by one.
+  To see accumulated, "/vis/enable", then "/vis/viewer/flush" or "/vis/viewer/rebuild".
+[INFO] ComputeInjectionPosition: Injecting particle vertically over a circle of radius: 0.025 m at height: 0.15
+[INFO] ComputeInjectionPosition: Injecting particle at position: 
+  -3.751848
+  -2.502560
+  150.000000
+[INFO] GeneratePrimaries: Primary Particle Information: 
+Particle name: mu+, ID: -13
+Particle position: (-0.375185, -0.250256, 15) cm
+Particle direction: (0, 0, -1.06818) GeV
+Particle (Theta, Phi): (2.89164, 0.376351) rad
+Particle Momentum: 1.06818 GeV 
+Particle Kinetic Energy: 0.967736 GeV 
+
+Detector 0 total Energy Deposit = 1.10187 MeV
+===========================================
+Output VRML 2.0 file: g4_07.wrl
+Maximum number of files in the destination directory: 100
+  (Customizable with the environment variable: G4VRMLFILE_MAX_FILE_NUM) 
+===========================================
+*** VRML 2.0 File  g4_07.wrl  is generated.
+MESSAGE from VRML2FILE driver:
+    Set an environmental variable  G4VRMLFILE_VIEWER
+    if you want to visualize the generated VRML file
+    automatically.  For example, 
+    setenv  G4VRMLFILE_VIEWER  vrwave 
+ALSO you may change the file header with G4VRMLFILE_HEADER
+    or the whole filename with G4VRMLFILE_FILE_NAME
+1 event has been kept for refreshing and/or reviewing.
+  "/vis/reviewKeptEvents" to review one by one.
+  To see accumulated, "/vis/enable", then "/vis/viewer/flush" or "/vis/viewer/rebuild".
+[INFO] ComputeInjectionPosition: Injecting particle vertically over a circle of radius: 0.025 m at height: 0.15
+[INFO] ComputeInjectionPosition: Injecting particle at position: 
+  18.099238
+  -7.003165
+  150.000000
+[INFO] GeneratePrimaries: Primary Particle Information: 
+Particle name: mu+, ID: -13
+Particle position: (1.80992, -0.700316, 15) cm
+Particle direction: (0, 0, -20.569) GeV
+Particle (Theta, Phi): (2.05967, 2.61759) rad
+Particle Momentum: 20.569 GeV 
+Particle Kinetic Energy: 20.4636 GeV 
+
+Detector 0 total Energy Deposit = 0.377563 MeV
+===========================================
+Output VRML 2.0 file: g4_08.wrl
+Maximum number of files in the destination directory: 100
+  (Customizable with the environment variable: G4VRMLFILE_MAX_FILE_NUM) 
+===========================================
+*** VRML 2.0 File  g4_08.wrl  is generated.
+MESSAGE from VRML2FILE driver:
+    Set an environmental variable  G4VRMLFILE_VIEWER
+    if you want to visualize the generated VRML file
+    automatically.  For example, 
+    setenv  G4VRMLFILE_VIEWER  vrwave 
+ALSO you may change the file header with G4VRMLFILE_HEADER
+    or the whole filename with G4VRMLFILE_FILE_NAME
+1 event has been kept for refreshing and/or reviewing.
+  "/vis/reviewKeptEvents" to review one by one.
+  To see accumulated, "/vis/enable", then "/vis/viewer/flush" or "/vis/viewer/rebuild".
+[INFO] ComputeInjectionPosition: Injecting particle vertically over a circle of radius: 0.025 m at height: 0.15
+[INFO] ComputeInjectionPosition: Injecting particle at position: 
+  -13.698812
+  15.703843
+  150.000000
+[INFO] GeneratePrimaries: Primary Particle Information: 
+Particle name: mu+, ID: -13
+Particle position: (-1.36988, 1.57038, 15) cm
+Particle direction: (0, 0, -1.2637) GeV
+Particle (Theta, Phi): (2.84966, 0.129192) rad
+Particle Momentum: 1.2637 GeV 
+Particle Kinetic Energy: 1.16245 GeV 
+
+Detector 0 total Energy Deposit = 1.15314 MeV
+===========================================
+Output VRML 2.0 file: g4_09.wrl
+Maximum number of files in the destination directory: 100
+  (Customizable with the environment variable: G4VRMLFILE_MAX_FILE_NUM) 
+===========================================
+*** VRML 2.0 File  g4_09.wrl  is generated.
+MESSAGE from VRML2FILE driver:
+    Set an environmental variable  G4VRMLFILE_VIEWER
+    if you want to visualize the generated VRML file
+    automatically.  For example, 
+    setenv  G4VRMLFILE_VIEWER  vrwave 
+ALSO you may change the file header with G4VRMLFILE_HEADER
+    or the whole filename with G4VRMLFILE_FILE_NAME
+1 event has been kept for refreshing and/or reviewing.
+  "/vis/reviewKeptEvents" to review one by one.
+  To see accumulated, "/vis/enable", then "/vis/viewer/flush" or "/vis/viewer/rebuild".
+[INFO] ComputeInjectionPosition: Injecting particle vertically over a circle of radius: 0.025 m at height: 0.15
+[INFO] ComputeInjectionPosition: Injecting particle at position: 
+  4.346219
+  -4.543980
+  150.000000
+[INFO] GeneratePrimaries: Primary Particle Information: 
+Particle name: mu+, ID: -13
+Particle position: (0.434622, -0.454398, 15) cm
+Particle direction: (0, 0, -0.264784) GeV
+Particle (Theta, Phi): (2.50209, 3.42566) rad
+Particle Momentum: 0.264784 GeV 
+Particle Kinetic Energy: 0.179428 GeV 
+
+Detector 0 total Energy Deposit = 1.03586 MeV
+===========================================
+Output VRML 2.0 file: g4_10.wrl
+Maximum number of files in the destination directory: 100
+  (Customizable with the environment variable: G4VRMLFILE_MAX_FILE_NUM) 
+===========================================
+*** VRML 2.0 File  g4_10.wrl  is generated.
+MESSAGE from VRML2FILE driver:
+    Set an environmental variable  G4VRMLFILE_VIEWER
+    if you want to visualize the generated VRML file
+    automatically.  For example, 
+    setenv  G4VRMLFILE_VIEWER  vrwave 
+ALSO you may change the file header with G4VRMLFILE_HEADER
+    or the whole filename with G4VRMLFILE_FILE_NAME
+1 event has been kept for refreshing and/or reviewing.
+  "/vis/reviewKeptEvents" to review one by one.
+  To see accumulated, "/vis/enable", then "/vis/viewer/flush" or "/vis/viewer/rebuild".
+Graphics systems deleted.
+Visualization Manager deleting...
+[INFO] RunSimulation: Geant4 Simulation ended successfully.
+[INFO] FileWriter: Writing output to file ./trajectory_output.json
+Elapsed time: 4.66 seconds
+Trying Castle Model Viewer / input-first: /home/reriosto/castle-model-viewer/castle-model-viewer
+Dropped Escape call with ulEscapeCode : 0x03007703
+
+(castle-model-viewer:17450): Gdk-WARNING **: 22:22:59.249: gdk_window_set_icon_list: icons too large
+Castle Model Viewer: rendered /mnt/d/hodo/meiga/docs/beamer/figures/meiga_trajectories_view_front.png
+Trying Castle Model Viewer / input-first: /home/reriosto/castle-model-viewer/castle-model-viewer
+Dropped Escape call with ulEscapeCode : 0x03007703
+
+(castle-model-viewer:17494): Gdk-WARNING **: 22:23:01.100: gdk_window_set_icon_list: icons too large
+Castle Model Viewer: rendered /mnt/d/hodo/meiga/docs/beamer/figures/meiga_trajectories_view_oblique.png
+Trying Castle Model Viewer / input-first: /home/reriosto/castle-model-viewer/castle-model-viewer
+Dropped Escape call with ulEscapeCode : 0x03007703
+
+(castle-model-viewer:17518): Gdk-WARNING **: 22:23:02.992: gdk_window_set_icon_list: icons too large
+Castle Model Viewer: rendered /mnt/d/hodo/meiga/docs/beamer/figures/meiga_trajectories_view_side.png

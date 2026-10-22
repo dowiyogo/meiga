@@ -1,0 +1,5 @@
+repo_root=/mnt/d/hodo/meiga
+diagnostics_dir=/mnt/d/hodo/meiga/diagnostics
+[csv] hodoscope_bar_occupancy.csv: columns=['global_channel', 'bar_id', 'module', 'axis', 'channel', 'occupancy', 'mean_edep_MeV']
+[csv] hodoscope_pixel_occupancy_lower.csv: columns=['x_index', 'y_index', 'pixel_id', 'occupancy']
+[csv] hodoscope_pixel_occupancy_upper.csv: columns=['x_index', 'y_index', 'pixel_id', 'occupancy']

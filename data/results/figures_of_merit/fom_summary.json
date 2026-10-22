@@ -1,0 +1,2480 @@
+{
+  "metadata": {
+    "purpose": "Figures of merit aggregated from existing characterization outputs",
+    "posterior_uncertainty_status": "illustrative/prototype; not a closed result"
+  },
+  "warnings": [
+    "Optional configs/thesis_scenario.yaml is absent; using DetectorGeometry defaults only for documented detector constants.",
+    "Missing per-pair tolerance budget CSV; related figures of merit were skipped.",
+    "Per-pair omega and sigma_omega are unavailable; fractional uncertainty percentiles and robustness_index cannot be reported.",
+    "Current Phase B output stores grouped alpha and xy contributions; alpha_x, alpha_y, dx and dy cannot be split without a richer upstream table.",
+    "Phase C does not serialize the distance sweep values. sensitivity_range_exposure therefore plots stored Zagg versus exposure; it does not infer an exposure-versus-range curve.",
+    "F is not serialized; p95 nnz and voxel/track coverage fractions cannot be recovered from the Phase C report alone.",
+    "No reconstruction artifact was found; reconstruction FoMs remain future work.",
+    "No dedicated FUENTES/source-model output is currently exposed; source-model comparisons were not aggregated."
+  ],
+  "metrics": [
+    {
+      "section": "geometric",
+      "scope": "D=30 mm",
+      "metric": "mean_omega",
+      "value": 0.0059874259951812,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=30 mm",
+      "metric": "median_omega",
+      "value": null,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=30 mm",
+      "metric": "sum_omega",
+      "value": 392.3919500201951,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=30 mm",
+      "metric": "mean_T",
+      "value": 0.00095292844353,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=30 mm",
+      "metric": "median_T",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=30 mm",
+      "metric": "effective_acceptance_sum_omega",
+      "value": 392.3919500201951,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "sum(omega); no detector area factor is included"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=30 mm",
+      "metric": "angular_pitch",
+      "value": 66.66666666666667,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=30 mm",
+      "metric": "sigma_theta_proxy",
+      "value": 27.2165526975908,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=33.8651 mm",
+      "metric": "mean_omega",
+      "value": 0.0051083159792304,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=33.8651 mm",
+      "metric": "median_omega",
+      "value": null,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=33.8651 mm",
+      "metric": "sum_omega",
+      "value": 334.7785960148435,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=33.8651 mm",
+      "metric": "mean_T",
+      "value": 0.0008130137389698,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=33.8651 mm",
+      "metric": "median_T",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=33.8651 mm",
+      "metric": "effective_acceptance_sum_omega",
+      "value": 334.7785960148435,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "sum(omega); no detector area factor is included"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=33.8651 mm",
+      "metric": "angular_pitch",
+      "value": 59.05778602733886,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=33.8651 mm",
+      "metric": "sigma_theta_proxy",
+      "value": 24.1102401842417,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=38.2282 mm",
+      "metric": "mean_omega",
+      "value": 0.0043120529618491,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=38.2282 mm",
+      "metric": "median_omega",
+      "value": null,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=38.2282 mm",
+      "metric": "sum_omega",
+      "value": 282.5947029077426,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=38.2282 mm",
+      "metric": "mean_T",
+      "value": 0.0006862845437523,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=38.2282 mm",
+      "metric": "median_T",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=38.2282 mm",
+      "metric": "effective_acceptance_sum_omega",
+      "value": 282.5947029077426,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "sum(omega); no detector area factor is included"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=38.2282 mm",
+      "metric": "angular_pitch",
+      "value": 52.31733135676408,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=38.2282 mm",
+      "metric": "sigma_theta_proxy",
+      "value": 21.3584610880303,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=43.1535 mm",
+      "metric": "mean_omega",
+      "value": 0.0036033668411107,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=43.1535 mm",
+      "metric": "median_omega",
+      "value": null,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=43.1535 mm",
+      "metric": "sum_omega",
+      "value": 236.15024929903083,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=43.1535 mm",
+      "metric": "mean_T",
+      "value": 0.0005734936445362,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=43.1535 mm",
+      "metric": "median_T",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=43.1535 mm",
+      "metric": "effective_acceptance_sum_omega",
+      "value": 236.15024929903083,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "sum(omega); no detector area factor is included"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=43.1535 mm",
+      "metric": "angular_pitch",
+      "value": 46.34618641183737,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=43.1535 mm",
+      "metric": "sigma_theta_proxy",
+      "value": 18.9207513721521,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=48.7133 mm",
+      "metric": "mean_omega",
+      "value": 0.0029831521750174,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=48.7133 mm",
+      "metric": "median_omega",
+      "value": null,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=48.7133 mm",
+      "metric": "sum_omega",
+      "value": 195.50386094194033,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=48.7133 mm",
+      "metric": "mean_T",
+      "value": 0.0004747834146493,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=48.7133 mm",
+      "metric": "median_T",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=48.7133 mm",
+      "metric": "effective_acceptance_sum_omega",
+      "value": 195.50386094194033,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "sum(omega); no detector area factor is included"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=48.7133 mm",
+      "metric": "angular_pitch",
+      "value": 41.05654740440177,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=48.7133 mm",
+      "metric": "sigma_theta_proxy",
+      "value": 16.7612652901955,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=54.9894 mm",
+      "metric": "mean_omega",
+      "value": 0.0024488590004587,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=54.9894 mm",
+      "metric": "median_omega",
+      "value": null,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=54.9894 mm",
+      "metric": "sum_omega",
+      "value": 160.48842345406138,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=54.9894 mm",
+      "metric": "mean_T",
+      "value": 0.000389748014858,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=54.9894 mm",
+      "metric": "median_T",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=54.9894 mm",
+      "metric": "effective_acceptance_sum_omega",
+      "value": 160.48842345406138,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "sum(omega); no detector area factor is included"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=54.9894 mm",
+      "metric": "angular_pitch",
+      "value": 36.370631874456784,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=54.9894 mm",
+      "metric": "sigma_theta_proxy",
+      "value": 14.8482482858374,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=62.0741 mm",
+      "metric": "mean_omega",
+      "value": 0.0019951860869122,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=62.0741 mm",
+      "metric": "median_omega",
+      "value": null,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=62.0741 mm",
+      "metric": "sum_omega",
+      "value": 130.75651539187794,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=62.0741 mm",
+      "metric": "mean_T",
+      "value": 0.0003175437281202,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=62.0741 mm",
+      "metric": "median_T",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=62.0741 mm",
+      "metric": "effective_acceptance_sum_omega",
+      "value": 130.75651539187794,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "sum(omega); no detector area factor is included"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=62.0741 mm",
+      "metric": "angular_pitch",
+      "value": 32.21953492381168,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=62.0741 mm",
+      "metric": "sigma_theta_proxy",
+      "value": 13.153570052186799,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=70.0716 mm",
+      "metric": "mean_omega",
+      "value": 0.0016149238786526,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=70.0716 mm",
+      "metric": "median_omega",
+      "value": null,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=70.0716 mm",
+      "metric": "sum_omega",
+      "value": 105.8356513113768,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=70.0716 mm",
+      "metric": "mean_T",
+      "value": 0.0002570231180047,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=70.0716 mm",
+      "metric": "median_T",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=70.0716 mm",
+      "metric": "effective_acceptance_sum_omega",
+      "value": 105.8356513113768,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "sum(omega); no detector area factor is included"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=70.0716 mm",
+      "metric": "angular_pitch",
+      "value": 28.54221599146263,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=70.0716 mm",
+      "metric": "sigma_theta_proxy",
+      "value": 11.6523108845649,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=79.0995 mm",
+      "metric": "mean_omega",
+      "value": 0.0012997975939623,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=79.0995 mm",
+      "metric": "median_omega",
+      "value": null,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=79.0995 mm",
+      "metric": "sum_omega",
+      "value": 85.1835351179133,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=79.0995 mm",
+      "metric": "mean_T",
+      "value": 0.000206869212098,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=79.0995 mm",
+      "metric": "median_T",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=79.0995 mm",
+      "metric": "effective_acceptance_sum_omega",
+      "value": 85.1835351179133,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "sum(omega); no detector area factor is included"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=79.0995 mm",
+      "metric": "angular_pitch",
+      "value": 25.284601271548325,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=79.0995 mm",
+      "metric": "sigma_theta_proxy",
+      "value": 10.32239524417,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=89.2905 mm",
+      "metric": "mean_omega",
+      "value": 0.0010411990863353,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=89.2905 mm",
+      "metric": "median_omega",
+      "value": null,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=89.2905 mm",
+      "metric": "sum_omega",
+      "value": 68.23602332207022,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=89.2905 mm",
+      "metric": "mean_T",
+      "value": 0.000165711981333,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=89.2905 mm",
+      "metric": "median_T",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=89.2905 mm",
+      "metric": "effective_acceptance_sum_omega",
+      "value": 68.23602332207022,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "sum(omega); no detector area factor is included"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=89.2905 mm",
+      "metric": "angular_pitch",
+      "value": 22.398788575225208,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=89.2905 mm",
+      "metric": "sigma_theta_proxy",
+      "value": 9.1442671442971,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=100.795 mm",
+      "metric": "mean_omega",
+      "value": 0.0008307479724859,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=100.795 mm",
+      "metric": "median_omega",
+      "value": null,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=100.795 mm",
+      "metric": "sum_omega",
+      "value": 54.443899124835944,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=100.795 mm",
+      "metric": "mean_T",
+      "value": 0.0001322176462847,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=100.795 mm",
+      "metric": "median_T",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=100.795 mm",
+      "metric": "effective_acceptance_sum_omega",
+      "value": 54.443899124835944,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "sum(omega); no detector area factor is included"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=100.795 mm",
+      "metric": "angular_pitch",
+      "value": 19.842342944208788,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=100.795 mm",
+      "metric": "sigma_theta_proxy",
+      "value": 8.1006025857709,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=113.781 mm",
+      "metric": "mean_omega",
+      "value": 0.0006606695370684,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=113.781 mm",
+      "metric": "median_omega",
+      "value": null,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=113.781 mm",
+      "metric": "sum_omega",
+      "value": 43.29763878131466,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=113.781 mm",
+      "metric": "mean_T",
+      "value": 0.0001051488225746,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=113.781 mm",
+      "metric": "median_T",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=113.781 mm",
+      "metric": "effective_acceptance_sum_omega",
+      "value": 43.29763878131466,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "sum(omega); no detector area factor is included"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=113.781 mm",
+      "metric": "angular_pitch",
+      "value": 17.57767265820238,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=113.781 mm",
+      "metric": "sigma_theta_proxy",
+      "value": 7.1760548130445,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=128.44 mm",
+      "metric": "mean_omega",
+      "value": 0.0005240090240795,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=128.44 mm",
+      "metric": "median_omega",
+      "value": null,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=128.44 mm",
+      "metric": "sum_omega",
+      "value": 34.34145540207411,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=128.44 mm",
+      "metric": "mean_T",
+      "value": 8.339862640702665e-05,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=128.44 mm",
+      "metric": "median_T",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=128.44 mm",
+      "metric": "effective_acceptance_sum_omega",
+      "value": 34.34145540207411,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "sum(omega); no detector area factor is included"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=128.44 mm",
+      "metric": "angular_pitch",
+      "value": 15.5714764606008,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=128.44 mm",
+      "metric": "sigma_theta_proxy",
+      "value": 6.3570286450385,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=144.988 mm",
+      "metric": "mean_omega",
+      "value": 0.000414717665031,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=144.988 mm",
+      "metric": "median_omega",
+      "value": null,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=144.988 mm",
+      "metric": "sum_omega",
+      "value": 27.178936895471615,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=144.988 mm",
+      "metric": "mean_T",
+      "value": 6.600436637721459e-05,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=144.988 mm",
+      "metric": "median_T",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=144.988 mm",
+      "metric": "effective_acceptance_sum_omega",
+      "value": 27.178936895471615,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "sum(omega); no detector area factor is included"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=144.988 mm",
+      "metric": "angular_pitch",
+      "value": 13.794253874098596,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=144.988 mm",
+      "metric": "sigma_theta_proxy",
+      "value": 5.6314805623252,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=163.668 mm",
+      "metric": "mean_omega",
+      "value": 0.0003276488417466,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=163.668 mm",
+      "metric": "median_omega",
+      "value": null,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=163.668 mm",
+      "metric": "sum_omega",
+      "value": 21.472794492705177,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=163.668 mm",
+      "metric": "mean_T",
+      "value": 5.214693276232028e-05,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=163.668 mm",
+      "metric": "median_T",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=163.668 mm",
+      "metric": "effective_acceptance_sum_omega",
+      "value": 21.472794492705177,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "sum(omega); no detector area factor is included"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=163.668 mm",
+      "metric": "angular_pitch",
+      "value": 12.219871405549567,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=163.668 mm",
+      "metric": "sigma_theta_proxy",
+      "value": 4.9887416110038005,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=184.754 mm",
+      "metric": "mean_omega",
+      "value": 0.0002584983003651,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=184.754 mm",
+      "metric": "median_omega",
+      "value": null,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=184.754 mm",
+      "metric": "sum_omega",
+      "value": 16.940944612727193,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=184.754 mm",
+      "metric": "mean_T",
+      "value": 4.11412822839718e-05,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=184.754 mm",
+      "metric": "median_T",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=184.754 mm",
+      "metric": "effective_acceptance_sum_omega",
+      "value": 16.940944612727193,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "sum(omega); no detector area factor is included"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=184.754 mm",
+      "metric": "angular_pitch",
+      "value": 10.825178261258147,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=184.754 mm",
+      "metric": "sigma_theta_proxy",
+      "value": 4.4193605191252,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=208.558 mm",
+      "metric": "mean_omega",
+      "value": 0.000203714730353,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=208.558 mm",
+      "metric": "median_omega",
+      "value": null,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=208.558 mm",
+      "metric": "sum_omega",
+      "value": 13.350648568414208,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=208.558 mm",
+      "metric": "mean_T",
+      "value": 3.2422206316323464e-05,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=208.558 mm",
+      "metric": "median_T",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=208.558 mm",
+      "metric": "effective_acceptance_sum_omega",
+      "value": 13.350648568414208,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "sum(omega); no detector area factor is included"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=208.558 mm",
+      "metric": "angular_pitch",
+      "value": 9.58966592191775,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=208.558 mm",
+      "metric": "sigma_theta_proxy",
+      "value": 3.9149647187423997,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=235.428 mm",
+      "metric": "mean_omega",
+      "value": 0.0001603991623667,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=235.428 mm",
+      "metric": "median_omega",
+      "value": null,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=235.428 mm",
+      "metric": "sum_omega",
+      "value": 10.511919504864052,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=235.428 mm",
+      "metric": "mean_T",
+      "value": 2.552831955847568e-05,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=235.428 mm",
+      "metric": "median_T",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=235.428 mm",
+      "metric": "effective_acceptance_sum_omega",
+      "value": 10.511919504864052,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "sum(omega); no detector area factor is included"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=235.428 mm",
+      "metric": "angular_pitch",
+      "value": 8.495166571354222,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=235.428 mm",
+      "metric": "sigma_theta_proxy",
+      "value": 3.4681372299611,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=265.76 mm",
+      "metric": "mean_omega",
+      "value": 0.0001262049576687,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=265.76 mm",
+      "metric": "median_omega",
+      "value": null,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=265.76 mm",
+      "metric": "sum_omega",
+      "value": 8.270968105775923,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=265.76 mm",
+      "metric": "mean_T",
+      "value": 2.0086142855692452e-05,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=265.76 mm",
+      "metric": "median_T",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=265.76 mm",
+      "metric": "effective_acceptance_sum_omega",
+      "value": 8.270968105775923,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "sum(omega); no detector area factor is included"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=265.76 mm",
+      "metric": "angular_pitch",
+      "value": 7.525585944564594,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=265.76 mm",
+      "metric": "sigma_theta_proxy",
+      "value": 3.0723075966073,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=300 mm",
+      "metric": "mean_omega",
+      "value": 9.924511591576696e-05,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=300 mm",
+      "metric": "median_omega",
+      "value": null,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=300 mm",
+      "metric": "sum_omega",
+      "value": 6.504127916655704,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=300 mm",
+      "metric": "mean_T",
+      "value": 1.5795350775722447e-05,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=300 mm",
+      "metric": "median_T",
+      "value": null,
+      "unit": "dimensionless",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "not stored by current Phase A outputs"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=300 mm",
+      "metric": "effective_acceptance_sum_omega",
+      "value": 6.504127916655704,
+      "unit": "sr",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": "sum(omega); no detector area factor is included"
+    },
+    {
+      "section": "geometric",
+      "scope": "D=300 mm",
+      "metric": "angular_pitch",
+      "value": 6.666666666666667,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "geometric",
+      "scope": "D=300 mm",
+      "metric": "sigma_theta_proxy",
+      "value": 2.721655269759,
+      "unit": "mrad",
+      "status": "SIMULATION",
+      "source": "characterization/results/scan_D_summary.csv",
+      "note": ""
+    },
+    {
+      "section": "robustness",
+      "scope": "tolerance budget",
+      "metric": "relative_variance_contribution_D",
+      "value": 0.9852743216685033,
+      "unit": "fraction",
+      "status": "SIMULATION",
+      "source": "characterization/results/tolerances/error_budget_default_tolerances.csv",
+      "note": "Current Phase B CSV groups alpha_x/alpha_y as alpha and dx/dy as xy."
+    },
+    {
+      "section": "robustness",
+      "scope": "tolerance budget",
+      "metric": "relative_variance_contribution_alpha",
+      "value": 0.014725678331496714,
+      "unit": "fraction",
+      "status": "SIMULATION",
+      "source": "characterization/results/tolerances/error_budget_default_tolerances.csv",
+      "note": "Current Phase B CSV groups alpha_x/alpha_y as alpha and dx/dy as xy."
+    },
+    {
+      "section": "robustness",
+      "scope": "tolerance budget",
+      "metric": "relative_variance_contribution_xy",
+      "value": 2.4467761851919155e-21,
+      "unit": "fraction",
+      "status": "SIMULATION",
+      "source": "characterization/results/tolerances/error_budget_default_tolerances.csv",
+      "note": "Current Phase B CSV groups alpha_x/alpha_y as alpha and dx/dy as xy."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "borehole_cavity, exposure=1 days",
+      "metric": "Zagg",
+      "value": 5.44256,
+      "unit": "sigma",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "borehole_cavity, exposure=1 days",
+      "metric": "target_distance",
+      "value": 8.0,
+      "unit": "m",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "borehole_cavity, exposure=1 days",
+      "metric": "reaches_5sigma",
+      "value": true,
+      "unit": "boolean",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "borehole_cavity, exposure=1 days",
+      "metric": "minimum_time_to_5sigma",
+      "value": 0.843983,
+      "unit": "days",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "borehole_cavity, exposure=7 days",
+      "metric": "Zagg",
+      "value": 14.4617,
+      "unit": "sigma",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "borehole_cavity, exposure=7 days",
+      "metric": "target_distance",
+      "value": 8.0,
+      "unit": "m",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "borehole_cavity, exposure=7 days",
+      "metric": "reaches_5sigma",
+      "value": true,
+      "unit": "boolean",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "borehole_cavity, exposure=7 days",
+      "metric": "minimum_time_to_5sigma",
+      "value": 0.843983,
+      "unit": "days",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "borehole_cavity, exposure=30 days",
+      "metric": "Zagg",
+      "value": 29.8101,
+      "unit": "sigma",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "borehole_cavity, exposure=30 days",
+      "metric": "target_distance",
+      "value": 8.0,
+      "unit": "m",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "borehole_cavity, exposure=30 days",
+      "metric": "reaches_5sigma",
+      "value": true,
+      "unit": "boolean",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "borehole_cavity, exposure=30 days",
+      "metric": "minimum_time_to_5sigma",
+      "value": 0.843983,
+      "unit": "days",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "gallery_vein, exposure=1 days",
+      "metric": "Zagg",
+      "value": 1.25236,
+      "unit": "sigma",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "gallery_vein, exposure=1 days",
+      "metric": "target_distance",
+      "value": 8.0,
+      "unit": "m",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "gallery_vein, exposure=1 days",
+      "metric": "reaches_5sigma",
+      "value": false,
+      "unit": "boolean",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "gallery_vein, exposure=1 days",
+      "metric": "minimum_time_to_5sigma",
+      "value": 15.9397,
+      "unit": "days",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "gallery_vein, exposure=7 days",
+      "metric": "Zagg",
+      "value": 3.32771,
+      "unit": "sigma",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "gallery_vein, exposure=7 days",
+      "metric": "target_distance",
+      "value": 8.0,
+      "unit": "m",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "gallery_vein, exposure=7 days",
+      "metric": "reaches_5sigma",
+      "value": false,
+      "unit": "boolean",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "gallery_vein, exposure=7 days",
+      "metric": "minimum_time_to_5sigma",
+      "value": 15.9397,
+      "unit": "days",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "gallery_vein, exposure=30 days",
+      "metric": "Zagg",
+      "value": 6.85947,
+      "unit": "sigma",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "gallery_vein, exposure=30 days",
+      "metric": "target_distance",
+      "value": 8.0,
+      "unit": "m",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "gallery_vein, exposure=30 days",
+      "metric": "reaches_5sigma",
+      "value": true,
+      "unit": "boolean",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "gallery_vein, exposure=30 days",
+      "metric": "minimum_time_to_5sigma",
+      "value": 15.9397,
+      "unit": "days",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "tunnel_pillar, exposure=1 days",
+      "metric": "Zagg",
+      "value": 49.1288,
+      "unit": "sigma",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "tunnel_pillar, exposure=1 days",
+      "metric": "target_distance",
+      "value": 8.0,
+      "unit": "m",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "tunnel_pillar, exposure=1 days",
+      "metric": "reaches_5sigma",
+      "value": true,
+      "unit": "boolean",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "tunnel_pillar, exposure=1 days",
+      "metric": "minimum_time_to_5sigma",
+      "value": 0.0103578,
+      "unit": "days",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "tunnel_pillar, exposure=7 days",
+      "metric": "Zagg",
+      "value": 130.543,
+      "unit": "sigma",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "tunnel_pillar, exposure=7 days",
+      "metric": "target_distance",
+      "value": 8.0,
+      "unit": "m",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "tunnel_pillar, exposure=7 days",
+      "metric": "reaches_5sigma",
+      "value": true,
+      "unit": "boolean",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "tunnel_pillar, exposure=7 days",
+      "metric": "minimum_time_to_5sigma",
+      "value": 0.0103578,
+      "unit": "days",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "tunnel_pillar, exposure=30 days",
+      "metric": "Zagg",
+      "value": 269.09,
+      "unit": "sigma",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "tunnel_pillar, exposure=30 days",
+      "metric": "target_distance",
+      "value": 8.0,
+      "unit": "m",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "tunnel_pillar, exposure=30 days",
+      "metric": "reaches_5sigma",
+      "value": true,
+      "unit": "boolean",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "tunnel_pillar, exposure=30 days",
+      "metric": "minimum_time_to_5sigma",
+      "value": 0.0103578,
+      "unit": "days",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Synthetic Phase C-1 CSDA detectability benchmark."
+    },
+    {
+      "section": "sensitivity",
+      "scope": "borehole_cavity, exposure=30 days",
+      "metric": "maximum_range_at_5sigma",
+      "value": 18.247,
+      "unit": "m",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Interpolated Phase C-1 synthetic benchmark."
+    },
+    {
+      "section": "forward_operator",
+      "scope": "F",
+      "metric": "shape",
+      "value": [
+        65536,
+        500000
+      ],
+      "unit": "rows x voxels",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Phase C-1 synthetic forward operator."
+    },
+    {
+      "section": "forward_operator",
+      "scope": "F",
+      "metric": "nnz",
+      "value": 3998312,
+      "unit": "elements",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Phase C-1 synthetic forward operator."
+    },
+    {
+      "section": "forward_operator",
+      "scope": "F",
+      "metric": "sparsity",
+      "value": 0.9998779812011719,
+      "unit": "fraction",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Phase C-1 synthetic forward operator."
+    },
+    {
+      "section": "forward_operator",
+      "scope": "F",
+      "metric": "row_nnz_mean",
+      "value": 61.0094,
+      "unit": "elements/row",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Phase C-1 synthetic forward operator."
+    },
+    {
+      "section": "forward_operator",
+      "scope": "F",
+      "metric": "row_nnz_median",
+      "value": null,
+      "unit": "elements/row",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Phase C-1 synthetic forward operator."
+    },
+    {
+      "section": "forward_operator",
+      "scope": "F",
+      "metric": "row_nnz_p95",
+      "value": null,
+      "unit": "elements/row",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Phase C-1 synthetic forward operator."
+    },
+    {
+      "section": "forward_operator",
+      "scope": "F",
+      "metric": "column_nnz_mean",
+      "value": 7.99662,
+      "unit": "elements/column",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Phase C-1 synthetic forward operator."
+    },
+    {
+      "section": "forward_operator",
+      "scope": "F",
+      "metric": "column_nnz_median",
+      "value": null,
+      "unit": "elements/column",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Phase C-1 synthetic forward operator."
+    },
+    {
+      "section": "forward_operator",
+      "scope": "F",
+      "metric": "column_nnz_p95",
+      "value": null,
+      "unit": "elements/column",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Phase C-1 synthetic forward operator."
+    },
+    {
+      "section": "forward_operator",
+      "scope": "F",
+      "metric": "voxel_coverage_fraction",
+      "value": null,
+      "unit": "fraction",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Phase C-1 synthetic forward operator."
+    },
+    {
+      "section": "forward_operator",
+      "scope": "F",
+      "metric": "track_coverage_fraction",
+      "value": null,
+      "unit": "fraction",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Phase C-1 synthetic forward operator."
+    },
+    {
+      "section": "forward_operator",
+      "scope": "F",
+      "metric": "build_time_s",
+      "value": 1.63784,
+      "unit": "s",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Phase C-1 synthetic forward operator."
+    },
+    {
+      "section": "forward_operator",
+      "scope": "F",
+      "metric": "speedup",
+      "value": 100.67,
+      "unit": "dimensionless",
+      "status": "ILLUSTRATIVE",
+      "source": "characterization/results/REPORT_phaseC1.md",
+      "note": "Phase C-1 synthetic forward operator."
+    }
+  ],
+  "tables": {
+    "geometric": [
+      {
+        "D_mm": 30.0,
+        "mean_omega_sr": 0.0059874259951812,
+        "median_omega_sr": null,
+        "sum_omega_sr": 392.3919500201951,
+        "mean_T_dimensionless": 0.00095292844353,
+        "median_T_dimensionless": null,
+        "effective_acceptance_sum_omega_sr": 392.3919500201951,
+        "angular_pitch_mrad": 66.66666666666667,
+        "sigma_theta_proxy_mrad": 27.2165526975908
+      },
+      {
+        "D_mm": 33.865136750540664,
+        "mean_omega_sr": 0.0051083159792304,
+        "median_omega_sr": null,
+        "sum_omega_sr": 334.7785960148435,
+        "mean_T_dimensionless": 0.0008130137389698,
+        "median_T_dimensionless": null,
+        "effective_acceptance_sum_omega_sr": 334.7785960148435,
+        "angular_pitch_mrad": 59.05778602733886,
+        "sigma_theta_proxy_mrad": 24.1102401842417
+      },
+      {
+        "D_mm": 38.22824957109402,
+        "mean_omega_sr": 0.0043120529618491,
+        "median_omega_sr": null,
+        "sum_omega_sr": 282.5947029077426,
+        "mean_T_dimensionless": 0.0006862845437523,
+        "median_T_dimensionless": null,
+        "effective_acceptance_sum_omega_sr": 282.5947029077426,
+        "angular_pitch_mrad": 52.31733135676408,
+        "sigma_theta_proxy_mrad": 21.3584610880303
+      },
+      {
+        "D_mm": 43.15349664862988,
+        "mean_omega_sr": 0.0036033668411107,
+        "median_omega_sr": null,
+        "sum_omega_sr": 236.15024929903083,
+        "mean_T_dimensionless": 0.0005734936445362,
+        "median_T_dimensionless": null,
+        "effective_acceptance_sum_omega_sr": 236.15024929903083,
+        "angular_pitch_mrad": 46.34618641183737,
+        "sigma_theta_proxy_mrad": 18.9207513721521
+      },
+      {
+        "D_mm": 48.713302175661646,
+        "mean_omega_sr": 0.0029831521750174,
+        "median_omega_sr": null,
+        "sum_omega_sr": 195.50386094194033,
+        "mean_T_dimensionless": 0.0004747834146493,
+        "median_T_dimensionless": null,
+        "effective_acceptance_sum_omega_sr": 195.50386094194033,
+        "angular_pitch_mrad": 41.05654740440177,
+        "sigma_theta_proxy_mrad": 16.7612652901955
+      },
+      {
+        "D_mm": 54.98942132497309,
+        "mean_omega_sr": 0.0024488590004587,
+        "median_omega_sr": null,
+        "sum_omega_sr": 160.48842345406138,
+        "mean_T_dimensionless": 0.000389748014858,
+        "median_T_dimensionless": null,
+        "effective_acceptance_sum_omega_sr": 160.48842345406138,
+        "angular_pitch_mrad": 36.370631874456784,
+        "sigma_theta_proxy_mrad": 14.8482482858374
+      },
+      {
+        "D_mm": 62.0741424334437,
+        "mean_omega_sr": 0.0019951860869122,
+        "median_omega_sr": null,
+        "sum_omega_sr": 130.75651539187794,
+        "mean_T_dimensionless": 0.0003175437281202,
+        "median_T_dimensionless": null,
+        "effective_acceptance_sum_omega_sr": 130.75651539187794,
+        "angular_pitch_mrad": 32.21953492381168,
+        "sigma_theta_proxy_mrad": 13.153570052186799
+      },
+      {
+        "D_mm": 70.07164407270366,
+        "mean_omega_sr": 0.0016149238786526,
+        "median_omega_sr": null,
+        "sum_omega_sr": 105.8356513113768,
+        "mean_T_dimensionless": 0.0002570231180047,
+        "median_T_dimensionless": null,
+        "effective_acceptance_sum_omega_sr": 105.8356513113768,
+        "angular_pitch_mrad": 28.54221599146263,
+        "sigma_theta_proxy_mrad": 11.6523108845649
+      },
+      {
+        "D_mm": 79.09952696191077,
+        "mean_omega_sr": 0.0012997975939623,
+        "median_omega_sr": null,
+        "sum_omega_sr": 85.1835351179133,
+        "mean_T_dimensionless": 0.000206869212098,
+        "median_T_dimensionless": null,
+        "effective_acceptance_sum_omega_sr": 85.1835351179133,
+        "angular_pitch_mrad": 25.284601271548325,
+        "sigma_theta_proxy_mrad": 10.32239524417
+      },
+      {
+        "D_mm": 89.29054324893957,
+        "mean_omega_sr": 0.0010411990863353,
+        "median_omega_sr": null,
+        "sum_omega_sr": 68.23602332207022,
+        "mean_T_dimensionless": 0.000165711981333,
+        "median_T_dimensionless": null,
+        "effective_acceptance_sum_omega_sr": 68.23602332207022,
+        "angular_pitch_mrad": 22.398788575225208,
+        "sigma_theta_proxy_mrad": 9.1442671442971
+      },
+      {
+        "D_mm": 100.79454858851346,
+        "mean_omega_sr": 0.0008307479724859,
+        "median_omega_sr": null,
+        "sum_omega_sr": 54.443899124835944,
+        "mean_T_dimensionless": 0.0001322176462847,
+        "median_T_dimensionless": null,
+        "effective_acceptance_sum_omega_sr": 54.443899124835944,
+        "angular_pitch_mrad": 19.842342944208788,
+        "sigma_theta_proxy_mrad": 8.1006025857709
+      },
+      {
+        "D_mm": 113.78070572196754,
+        "mean_omega_sr": 0.0006606695370684,
+        "median_omega_sr": null,
+        "sum_omega_sr": 43.29763878131466,
+        "mean_T_dimensionless": 0.0001051488225746,
+        "median_T_dimensionless": null,
+        "effective_acceptance_sum_omega_sr": 43.29763878131466,
+        "angular_pitch_mrad": 17.57767265820238,
+        "sigma_theta_proxy_mrad": 7.1760548130445
+      },
+      {
+        "D_mm": 128.43997196158193,
+        "mean_omega_sr": 0.0005240090240795,
+        "median_omega_sr": null,
+        "sum_omega_sr": 34.34145540207411,
+        "mean_T_dimensionless": 8.339862640702665e-05,
+        "median_T_dimensionless": null,
+        "effective_acceptance_sum_omega_sr": 34.34145540207411,
+        "angular_pitch_mrad": 15.5714764606008,
+        "sigma_theta_proxy_mrad": 6.3570286450385
+      },
+      {
+        "D_mm": 144.98790715715262,
+        "mean_omega_sr": 0.000414717665031,
+        "median_omega_sr": null,
+        "sum_omega_sr": 27.178936895471615,
+        "mean_T_dimensionless": 6.600436637721459e-05,
+        "median_T_dimensionless": null,
+        "effective_acceptance_sum_omega_sr": 27.178936895471615,
+        "angular_pitch_mrad": 13.794253874098596,
+        "sigma_theta_proxy_mrad": 5.6314805623252
+      },
+      {
+        "D_mm": 163.66784343505566,
+        "mean_omega_sr": 0.0003276488417466,
+        "median_omega_sr": null,
+        "sum_omega_sr": 21.472794492705177,
+        "mean_T_dimensionless": 5.214693276232028e-05,
+        "median_T_dimensionless": null,
+        "effective_acceptance_sum_omega_sr": 21.472794492705177,
+        "angular_pitch_mrad": 12.219871405549567,
+        "sigma_theta_proxy_mrad": 4.9887416110038005
+      },
+      {
+        "D_mm": 184.75446331980788,
+        "mean_omega_sr": 0.0002584983003651,
+        "median_omega_sr": null,
+        "sum_omega_sr": 16.940944612727193,
+        "mean_T_dimensionless": 4.11412822839718e-05,
+        "median_T_dimensionless": null,
+        "effective_acceptance_sum_omega_sr": 16.940944612727193,
+        "angular_pitch_mrad": 10.825178261258147,
+        "sigma_theta_proxy_mrad": 4.4193605191252
+      },
+      {
+        "D_mm": 208.55783885326824,
+        "mean_omega_sr": 0.000203714730353,
+        "median_omega_sr": null,
+        "sum_omega_sr": 13.350648568414208,
+        "mean_T_dimensionless": 3.2422206316323464e-05,
+        "median_T_dimensionless": null,
+        "effective_acceptance_sum_omega_sr": 13.350648568414208,
+        "angular_pitch_mrad": 9.58966592191775,
+        "sigma_theta_proxy_mrad": 3.9149647187423997
+      },
+      {
+        "D_mm": 235.4279911054385,
+        "mean_omega_sr": 0.0001603991623667,
+        "median_omega_sr": null,
+        "sum_omega_sr": 10.511919504864052,
+        "mean_T_dimensionless": 2.552831955847568e-05,
+        "median_T_dimensionless": null,
+        "effective_acceptance_sum_omega_sr": 10.511919504864052,
+        "angular_pitch_mrad": 8.495166571354222,
+        "sigma_theta_proxy_mrad": 3.4681372299611
+      },
+      {
+        "D_mm": 265.7600371230248,
+        "mean_omega_sr": 0.0001262049576687,
+        "median_omega_sr": null,
+        "sum_omega_sr": 8.270968105775923,
+        "mean_T_dimensionless": 2.0086142855692452e-05,
+        "median_T_dimensionless": null,
+        "effective_acceptance_sum_omega_sr": 8.270968105775923,
+        "angular_pitch_mrad": 7.525585944564594,
+        "sigma_theta_proxy_mrad": 3.0723075966073
+      },
+      {
+        "D_mm": 300.0,
+        "mean_omega_sr": 9.924511591576696e-05,
+        "median_omega_sr": null,
+        "sum_omega_sr": 6.504127916655704,
+        "mean_T_dimensionless": 1.5795350775722447e-05,
+        "median_T_dimensionless": null,
+        "effective_acceptance_sum_omega_sr": 6.504127916655704,
+        "angular_pitch_mrad": 6.666666666666667,
+        "sigma_theta_proxy_mrad": 2.721655269759
+      }
+    ],
+    "robustness": [],
+    "tolerance_contributions": [
+      {
+        "field": "D",
+        "relative_variance_contribution": 0.9852743216685033,
+        "source_resolution": "grouped"
+      },
+      {
+        "field": "alpha",
+        "relative_variance_contribution": 0.014725678331496714,
+        "source_resolution": "grouped"
+      },
+      {
+        "field": "xy",
+        "relative_variance_contribution": 2.4467761851919155e-21,
+        "source_resolution": "grouped"
+      }
+    ],
+    "sensitivity": [
+      {
+        "scenario": "borehole_cavity",
+        "exposure_days": 1.0,
+        "target_distance_m": 8.0,
+        "Zagg_sigma": 5.44256,
+        "reaches_5sigma": true,
+        "minimum_time_to_5sigma_days": 0.843983
+      },
+      {
+        "scenario": "borehole_cavity",
+        "exposure_days": 7.0,
+        "target_distance_m": 8.0,
+        "Zagg_sigma": 14.4617,
+        "reaches_5sigma": true,
+        "minimum_time_to_5sigma_days": 0.843983
+      },
+      {
+        "scenario": "borehole_cavity",
+        "exposure_days": 30.0,
+        "target_distance_m": 8.0,
+        "Zagg_sigma": 29.8101,
+        "reaches_5sigma": true,
+        "minimum_time_to_5sigma_days": 0.843983
+      },
+      {
+        "scenario": "gallery_vein",
+        "exposure_days": 1.0,
+        "target_distance_m": 8.0,
+        "Zagg_sigma": 1.25236,
+        "reaches_5sigma": false,
+        "minimum_time_to_5sigma_days": 15.9397
+      },
+      {
+        "scenario": "gallery_vein",
+        "exposure_days": 7.0,
+        "target_distance_m": 8.0,
+        "Zagg_sigma": 3.32771,
+        "reaches_5sigma": false,
+        "minimum_time_to_5sigma_days": 15.9397
+      },
+      {
+        "scenario": "gallery_vein",
+        "exposure_days": 30.0,
+        "target_distance_m": 8.0,
+        "Zagg_sigma": 6.85947,
+        "reaches_5sigma": true,
+        "minimum_time_to_5sigma_days": 15.9397
+      },
+      {
+        "scenario": "tunnel_pillar",
+        "exposure_days": 1.0,
+        "target_distance_m": 8.0,
+        "Zagg_sigma": 49.1288,
+        "reaches_5sigma": true,
+        "minimum_time_to_5sigma_days": 0.0103578
+      },
+      {
+        "scenario": "tunnel_pillar",
+        "exposure_days": 7.0,
+        "target_distance_m": 8.0,
+        "Zagg_sigma": 130.543,
+        "reaches_5sigma": true,
+        "minimum_time_to_5sigma_days": 0.0103578
+      },
+      {
+        "scenario": "tunnel_pillar",
+        "exposure_days": 30.0,
+        "target_distance_m": 8.0,
+        "Zagg_sigma": 269.09,
+        "reaches_5sigma": true,
+        "minimum_time_to_5sigma_days": 0.0103578
+      }
+    ],
+    "forward_operator": {
+      "shape": [
+        65536,
+        500000
+      ],
+      "nnz": 3998312,
+      "sparsity": 0.9998779812011719,
+      "row_nnz_mean": 61.0094,
+      "column_nnz_mean": 7.99662,
+      "build_time_s": 1.63784,
+      "speedup": 100.67
+    },
+    "reconstruction": {}
+  }
+}

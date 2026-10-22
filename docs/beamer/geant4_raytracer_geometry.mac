@@ -1,0 +1,7 @@
+/vis/open RayTracer
+/vis/drawVolume
+/vis/viewer/set/viewpointThetaPhi 60 30
+/vis/viewer/zoom 1.5
+/vis/scene/add/axes 0 0 0 20 mm
+/vis/viewer/flush
+/vis/rayTracer/trace
