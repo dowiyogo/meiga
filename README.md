@@ -249,6 +249,7 @@ The configuration settings are written in a JSON file like the example below:
 - `Mode`: can be `UseARTI` or `UseEcoMug` for selecting between the two input types (see [Input flux](#input-flux)).
 - `InputFileName`: path to input file in case `UseARTI` is chosen.
 - `InputNParticles`: number of *muons* to be injected in case `UseEcoMug` is chosen.
+- `Seed` (optional): positive integer to seed EcoMug and Geant4 reproducibly; omit or set to `0` for random seeds.
 - `OutputFile`: path to the output file.
 - `CompressOutput`: enable compression of output file (.gz).
 - `SavePETimeDistribution`: save photo-electron time distributions for each injected particle.
