@@ -3,12 +3,17 @@
 #include "Materials.h"
 #include "G4MScintillatorBarAction.h"
 #include "G4MOptDeviceAction.h"
+#include "SimData.h"
+#include "DetectorSimData.h"
 
 #include "G4SDManager.hh"
 #include "G4PVPlacement.hh"
 #include "G4VisAttributes.hh"
 #include "G4Box.hh"
 #include "G4Tubs.hh"
+#include "G4VSensitiveDetector.hh"
+#include "G4Step.hh"
+#include "G4Track.hh"
 
 #include <boost/algorithm/string.hpp>
 #include <cmath>
@@ -18,6 +23,28 @@
 #include <iostream>
 #include <stdexcept>
 using namespace std;
+
+namespace {
+class NA64MiniTriggerPlateSD : public G4VSensitiveDetector {
+public:
+	NA64MiniTriggerPlateSD(const G4String& name, Event& event, const int detectorId,
+	                       const unsigned int plateIndex)
+		: G4VSensitiveDetector(name), fEvent(event), fDetectorId(detectorId), fPlateIndex(plateIndex) {}
+
+	G4bool ProcessHits(G4Step* step, G4TouchableHistory*) override {
+		if (step->GetTrack()->GetTrackID() == 1 && step->GetStepLength() > 0.0) {
+			fEvent.GetSimData().GetDetectorSimData(fDetectorId).SetTriggerPlateHit(fPlateIndex);
+		}
+		return true;
+	}
+	G4VSensitiveDetector* Clone() const override { return nullptr; }
+
+private:
+	Event& fEvent;
+	int fDetectorId;
+	unsigned int fPlateIndex;
+};
+}
 
 Hodoscope::Hodoscope(const int id, const Detector::DetectorType type) :
 	Scintillator(id, type)
@@ -206,6 +233,34 @@ Hodoscope::BuildNA64MiniDetector(G4LogicalVolume* logMother, Event& aEvent, G4bo
 				MakeOptDevice(meta.sensitiveBarId, OptDevice::eSiPM);
 			}
 		}
+	}
+
+	// Lab trigger geometry from thesis_orchestrator/outputs/acceptance_viz_complete.py:
+	// T1 bottom is 14.7 mm above the 104.4 mm upper-module top; T2 stacks on T1.
+	const double triggerSize = 150.0 * CLHEP::mm;
+	const double triggerThickness = 10.0 * CLHEP::mm;
+	const double triggerOffset = 42.5 * CLHEP::mm;
+	const double trigger1CenterZ = 124.1 * CLHEP::mm;
+	const double trigger2CenterZ = 134.1 * CLHEP::mm;
+	for (unsigned int plateIndex = 0; plateIndex < 2; ++plateIndex) {
+		const double sign = (plateIndex == 0) ? -1.0 : 1.0;
+		const G4String plateName = (plateIndex == 0) ? "TriggerPlate1" : "TriggerPlate2";
+		const double centerZ = detectorPos.getZ() + ((plateIndex == 0) ? trigger1CenterZ : trigger2CenterZ);
+		const G4ThreeVector center(detectorPos.getX() + sign * triggerOffset,
+		                           detectorPos.getY() + sign * triggerOffset, centerZ);
+		auto* solidPlate = new G4Box(plateName, 0.5 * triggerSize, 0.5 * triggerSize,
+		                            0.5 * triggerThickness);
+		auto* logicalPlate = new G4LogicalVolume(solidPlate, Materials().Polystyrene, plateName);
+		logicalPlate->SetVisAttributes(plateIndex == 0 ? blue : green);
+		new G4PVPlacement(nullptr, center, logicalPlate, plateName, logMother, false,
+		                  static_cast<int>(plateIndex), fCheckOverlaps);
+		auto* triggerSD = new NA64MiniTriggerPlateSD(plateName + "SD", aEvent, detectorId, plateIndex);
+		sdMan->AddNewDetector(triggerSD);
+		logicalPlate->SetSensitiveDetector(triggerSD);
+		Logger::Print(plateName + " sensitive volume centre = (" +
+		              to_string(center.x() / CLHEP::mm) + ", " +
+		              to_string(center.y() / CLHEP::mm) + ", " +
+		              to_string(center.z() / CLHEP::mm) + ") mm", INFO, "BuildDetector");
 	}
 
 	ValidateNA64MiniGeometry();

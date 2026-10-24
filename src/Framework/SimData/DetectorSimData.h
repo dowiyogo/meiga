@@ -5,6 +5,7 @@
 #include <map>
 #include <set>
 #include <cstdint>
+#include <array>
 
 /*
 
@@ -68,6 +69,14 @@ class DetectorSimData
 		const std::vector<std::string>& GetBinaryCounter() const { return fBinaryCounter; }
 		bool HasBinaryCounter() const { return !fBinaryCounter.empty(); }
 
+		// Per-event NA64-mini trigger plate flags.
+		void ClearCurrentTriggerPlateHits() { fCurrentTriggerPlateHits = {{false, false}}; }
+		void SetTriggerPlateHit(const unsigned int index) {
+			if (index < fCurrentTriggerPlateHits.size()) fCurrentTriggerPlateHits[index] = true;
+		}
+		void AddTriggerPlateHitEvent() { fTriggerPlateHitEvents.push_back(fCurrentTriggerPlateHits); }
+		const std::vector<std::array<bool, 2>>& GetTriggerPlateHitEvents() const { return fTriggerPlateHitEvents; }
+
 		void AddBarEnergyDeposit(const int barId, const double eDep);
 		void AddBarFirstTime(const int barId, const double time);
 		void EndBarEvent();
@@ -99,6 +108,8 @@ class DetectorSimData
 		// vectors to store hits at scintillator bars
 		std::vector<int> fHitBarIndices;
 		std::vector<std::string> fBinaryCounter;
+		std::array<bool, 2> fCurrentTriggerPlateHits{{false, false}};
+		std::vector<std::array<bool, 2>> fTriggerPlateHitEvents;
 
 		std::map<int, double> fCurrentBarEnergyDeposit;
 		std::map<int, double> fCurrentBarFirstTime;

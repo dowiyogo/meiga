@@ -20,7 +20,11 @@ G4HodoscopeEventAction::~G4HodoscopeEventAction()
 void
 G4HodoscopeEventAction::BeginOfEventAction(const G4Event*)
 {
-
+	for (auto &pair : fEvent.DetectorRange()) {
+		if (pair.second->GetName() == "HodoscopeNA64Mini") {
+			fEvent.GetSimData().GetDetectorSimData(pair.second->GetId()).ClearCurrentTriggerPlateHits();
+		}
+	}
 }
 
 void 
@@ -50,6 +54,9 @@ G4HodoscopeEventAction::EndOfEventAction(const G4Event*)
 		// set it to the deposited energy vector
 		detSimData.SetEnergyDeposit(totalEdep);
 		detSimData.EndBarEvent();
+		if (currDet.GetName() == "HodoscopeNA64Mini") {
+			detSimData.AddTriggerPlateHitEvent();
+		}
 		// clear total energy deposit after the event is terminated to reset counter
 		detSimData.ClearTotalEnergyDeposit();
 

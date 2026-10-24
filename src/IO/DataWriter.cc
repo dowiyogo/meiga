@@ -138,6 +138,18 @@ DataWriter::FileWriter(Event& theEvent)
 
 		} // end loop over detectors
 
+		for (const auto& detPair : theEvent.DetectorRange()) {
+			const Detector& detector = *(detPair.second);
+			if (detector.GetName() != "HodoscopeNA64Mini") continue;
+			const auto& plateEvents = simData.GetDetectorSimData(detector.GetId()).GetTriggerPlateHitEvents();
+			if (eventId < plateEvents.size()) {
+				jEvent["trigger_plates"]["plate1_hit"] = plateEvents[eventId][0];
+				jEvent["trigger_plates"]["plate2_hit"] = plateEvents[eventId][1];
+				jEvent["trigger_plates"]["coincidence"] = plateEvents[eventId][0] && plateEvents[eventId][1];
+			}
+			break;
+		}
+
 		// store event data tree in main tree
 		jData["Output"]["Event_"+to_string(eventId)] = jEvent;
 
