@@ -12,6 +12,8 @@
 
 #include <boost/algorithm/string.hpp>
 #include <cmath>
+#include <cstdlib>
+#include <fstream>
 #include <iomanip>
 #include <iostream>
 #include <stdexcept>
@@ -170,8 +172,8 @@ Hodoscope::BuildNA64MiniDetector(G4LogicalVolume* logMother, Event& aEvent, G4bo
 				const double transverse = GetNA64BarCenterCoordinate(channel, GetBarWidth(), fSubplaneOffset);
 				const double localZ =
 					(axis == "X")
-						? ((subplane == 0) ? 1.5 * CLHEP::mm : 3.5 * CLHEP::mm)
-						: ((subplane == 0) ? 8.5 * CLHEP::mm : 10.5 * CLHEP::mm);
+						? ((subplane == 0) ? 1.5 * CLHEP::mm : 4.5 * CLHEP::mm)
+						: ((subplane == 0) ? 10.5 * CLHEP::mm : 13.5 * CLHEP::mm);
 				const double centerZ = module.zMin + localZ;
 				const double centerX = (axis == "X") ? transverse : 0.0;
 				const double centerY = (axis == "Y") ? transverse : 0.0;
@@ -207,6 +209,20 @@ Hodoscope::BuildNA64MiniDetector(G4LogicalVolume* logMother, Event& aEvent, G4bo
 	}
 
 	ValidateNA64MiniGeometry();
+
+	const char* dumpPath = std::getenv("GEOM_DUMP");
+	if (dumpPath && *dumpPath) {
+		std::ofstream dump(dumpPath);
+		if (!dump) throw std::runtime_error("Could not open GEOM_DUMP output file.");
+		dump << "module,axis,subplane,channel,x_mm,y_mm,z_mm\n" << std::setprecision(9);
+		for (const auto& meta : fNA64BarMetadata) {
+			dump << meta.module << ',' << meta.axis << ',' << meta.subplane << ','
+			     << meta.channelIndexAxis << ','
+			     << detectorPos.getX() + meta.centerX << ','
+			     << detectorPos.getY() + meta.centerY << ','
+			     << detectorPos.getZ() + meta.centerZ << '\n';
+		}
+	}
 }
 
 void

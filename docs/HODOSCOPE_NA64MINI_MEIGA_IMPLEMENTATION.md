@@ -5,11 +5,11 @@ This implementation adds an explicit `NA64Mini` mode to `eHodoscope`.
 ## Geometry
 
 - Two X-Y detector modules are built by one logical hodoscope detector.
-- Lower module: `z_min = 0.00 mm`, `z_max = 12.00 mm`, `z_center = 6.00 mm`.
-- Upper module: `z_min = 98.40 mm`, `z_max = 110.40 mm`, `z_center = 104.40 mm`.
+- Lower module: `z_min = 0.00 mm`, `z_max = 15.00 mm`, `z_center = 7.50 mm`.
+- Upper module: `z_min = 98.40 mm`, `z_max = 113.40 mm`, `z_center = 105.90 mm`.
 - Equivalent center separation: `98.40 mm`.
-- Free gap between modules: `86.40 mm`.
-- Module thickness: `12.00 mm`.
+- Free gap between module faces: `83.40 mm`.
+- Module thickness: `15.00 mm`.
 - Active material mode defaults to `active_only`.
 
 Each module has two axes, `X` and `Y`. Each axis has 16 resolvable channels:
@@ -17,6 +17,8 @@ Each module has two axes, `X` and `Y`. Each axis has 16 resolvable channels:
 - Subplane A: channels `0..7`.
 - Subplane B: channels `8..15`.
 - Subplane offset: `2.00 mm`.
+- Transverse centres in subplane A: `-15, -11, -7, -3, 1, 5, 9, 13 mm`.
+- Transverse centres in subplane B: `-13, -9, -5, -1, 3, 7, 11, 15 mm`.
 - Bar pitch: `4.00 mm`.
 - Bar width: `3.00 mm`.
 - Bar length: `75.00 mm`.
@@ -25,12 +27,13 @@ Each module has two axes, `X` and `Y`. Each axis has 16 resolvable channels:
 The four active layer centers inside each module are:
 
 - `X_A`: `z_min + 1.5 mm`.
-- `X_B`: `z_min + 3.5 mm`.
-- `Y_A`: `z_min + 8.5 mm`.
-- `Y_B`: `z_min + 10.5 mm`.
+- `X_B`: `z_min + 4.5 mm`.
+- `Y_A`: `z_min + 10.5 mm`.
+- `Y_B`: `z_min + 13.5 mm`.
 
-The documented `x_y_axis_separation_mm = 5.0` is the separation between the
-inner active layer centers `X_B` and `Y_A`.
+The same-axis subplane centre spacing is `3.0 mm` (the bars have a `2.0 mm`
+air gap). The X-block to Y-block centre spacing is `6.0 mm` (the inner bar
+faces have a `5.0 mm` air gap). The module-centre separation is `98.4 mm`.
 
 ## Axis Convention
 
