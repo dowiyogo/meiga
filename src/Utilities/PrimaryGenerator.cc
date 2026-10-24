@@ -41,6 +41,7 @@ PrimaryGenerator::PrimaryGenerator(Event& theEvent) :
 
         fMuonGen.SetHSphereRadius(injectionRadius);
         fMuonGen.SetHSphereCenterPosition({{oX, oY, oZ}});
+        fMuonGen.SetSeed(static_cast<std::uint64_t>(simData.GetSeed()));
         
         // limits for momentum and position
         fMuonGen.SetMinimumMomentum(1e-1);
@@ -97,8 +98,6 @@ PrimaryGenerator::GeneratePrimaryParticle()
 
         */
 
-        long int seed = simData.GetSeed();
-        fMuonGen.SetSeed(seed);
         fMuonGen.Generate();
         ComputeInjectionPosition(simData, fParticlePosition);
         pTot = fMuonGen.GetGenerationMomentum() * CLHEP::GeV;

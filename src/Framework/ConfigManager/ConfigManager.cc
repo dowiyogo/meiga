@@ -26,6 +26,7 @@ ConfigManager::ReadConfigurationFile(Event &aEvent, const string &fConfigFile)
 	simData.SetInputMode(simData.InputModeConversion(cfg.fInputMode));
 	cfg.fInputFileName = tree.get<string>("Input.InputFileName", "");
 	cfg.fInputNParticles = tree.get<unsigned int>("Input.InputNParticles", 0);
+	simData.SetSeed(tree.get<long int>("Input.Seed", 0));
 	
 	// reads the input (ARTI) file and fills the Event with particles
 	if (simData.GetInputMode() == SimData::InputMode::eUseARTI) {

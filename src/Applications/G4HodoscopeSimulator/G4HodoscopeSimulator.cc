@@ -85,9 +85,10 @@ G4HodoscopeSimulator::RunSimulation(Event& aEvent)
 	msg << "Number of particles to be simulated: " << numberOfParticles;
 	Logger::Print(msg, INFO, "RunSimulation");
 	
-	G4long myseed = time(NULL);
+	G4long myseed = simData.GetSeed() ? simData.GetSeed() : time(NULL);
 	G4Random::setTheEngine(new CLHEP::RanecuEngine);
 	G4Random::setTheSeed(myseed);
+	Logger::Print("Random seed: " + to_string(myseed), INFO, "RunSimulation");
 	
 	// construct the default run manager
 	auto runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::SerialOnly);
