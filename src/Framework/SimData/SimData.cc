@@ -49,6 +49,8 @@ SimData::InjectionConversion(string name)
 		return SimData::InjectionMode::eVertical;
 	else if (name == "eFromFile")
 		return SimData::InjectionMode::eFromFile;
+	else if (name == "eSky")
+		return SimData::InjectionMode::eSky;
 	else {
 		Logger::Print("Unknown injection type!", ERROR, "InjectionConversion");
 		throw invalid_argument("Invalid injection type.");

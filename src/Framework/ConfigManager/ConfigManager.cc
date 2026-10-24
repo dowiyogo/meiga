@@ -103,6 +103,14 @@ ConfigManager::ReadDetectorList(const string &fDetectorList, Event& theEvent)
 	double xmlInjRadius = GetPropertyFromXML<double>(tree, injectionBranch, "radius", defInjRadius);
 	simData.SetInjectionRadius(xmlInjRadius);
 	msg << "Injection Radius = " << xmlInjRadius / CLHEP::m << " m" << "\n";
+	// A sky source is a rectangular plane; default to the diameter of the legacy
+	// injection radius when explicit plane dimensions are not supplied.
+	double planeSizeX = GetPropertyFromXML<double>(tree, injectionBranch, "planeSizeX", 2.0 * xmlInjRadius);
+	double planeSizeY = GetPropertyFromXML<double>(tree, injectionBranch, "planeSizeY", 2.0 * xmlInjRadius);
+	simData.SetInjectionPlaneSizeX(planeSizeX);
+	simData.SetInjectionPlaneSizeY(planeSizeY);
+	msg << "Injection sky plane size = (" << planeSizeX / CLHEP::m << ", "
+	    << planeSizeY / CLHEP::m << ") m\n";
 	// injection height
 	double defInjHeight = simData.GetInjectionHeight();
 	double xmlInjHeight = GetPropertyFromXML<double>(tree, injectionBranch, "height", defInjHeight);

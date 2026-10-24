@@ -25,22 +25,29 @@ PrimaryGenerator::PrimaryGenerator(Event& theEvent) :
     ostringstream msg;
     msg << "SaveInput = " << (fSaveInput ? "yes" : "no");
     Logger::Print(msg, INFO, "PrimaryGenerator");
-    // initialize EcoMug generator in case is needed: only muons or HalfSphere generation
+    // EcoMug uses metres internally. Convert Geant4 XML lengths at this boundary.
     if (fUseEcoMug) {
         // print info
         ostringstream msg;
         msg << "Primary generation using EcoMug. Only muons will be generated!";
         Logger::Print(msg, WARNING, "PrimaryGenerator");
         
-        fMuonGen.SetUseHSphere();
         double injectionRadius = simData.GetInjectionRadius();
         vector<double> injectionOrigin = simData.GetInjectionOrigin();
         double oX = injectionOrigin[0];
         double oY = injectionOrigin[1];
         double oZ = injectionOrigin[2];
 
-        fMuonGen.SetHSphereRadius(injectionRadius);
-        fMuonGen.SetHSphereCenterPosition({{oX, oY, oZ}});
+        if (injMode == SimData::InjectionMode::eSky) {
+            fMuonGen.SetUseSky();
+            fMuonGen.SetSkySize({{simData.GetInjectionPlaneSizeX() / CLHEP::m,
+                                  simData.GetInjectionPlaneSizeY() / CLHEP::m}});
+            fMuonGen.SetSkyCenterPosition({{oX / CLHEP::m, oY / CLHEP::m, oZ / CLHEP::m}});
+        } else {
+            fMuonGen.SetUseHSphere();
+            fMuonGen.SetHSphereRadius(injectionRadius / CLHEP::m);
+            fMuonGen.SetHSphereCenterPosition({{oX / CLHEP::m, oY / CLHEP::m, oZ / CLHEP::m}});
+        }
         fMuonGen.SetSeed(static_cast<std::uint64_t>(simData.GetSeed()));
         
         // limits for momentum and position
@@ -51,10 +58,17 @@ PrimaryGenerator::PrimaryGenerator(Event& theEvent) :
         double minTheta = simData.GetInjectionMinTheta();
         double maxTheta = simData.GetInjectionMaxTheta();
 
-        fMuonGen.SetHSphereMinPositionTheta(minTheta * (M_PI / 180));
-        fMuonGen.SetHSphereMaxPositionTheta(maxTheta * (M_PI / 180));
-        fMuonGen.SetHSphereMinPositionPhi(minPhi * (M_PI / 180));
-        fMuonGen.SetHSphereMaxPositionPhi(maxPhi * (M_PI / 180));
+        if (injMode == SimData::InjectionMode::eSky) {
+            fMuonGen.SetMinimumTheta(minTheta * (M_PI / 180));
+            fMuonGen.SetMaximumTheta(maxTheta * (M_PI / 180));
+            fMuonGen.SetMinimumPhi(minPhi * (M_PI / 180));
+            fMuonGen.SetMaximumPhi(maxPhi * (M_PI / 180));
+        } else {
+            fMuonGen.SetHSphereMinPositionTheta(minTheta * (M_PI / 180));
+            fMuonGen.SetHSphereMaxPositionTheta(maxTheta * (M_PI / 180));
+            fMuonGen.SetHSphereMinPositionPhi(minPhi * (M_PI / 180));
+            fMuonGen.SetHSphereMaxPositionPhi(maxPhi * (M_PI / 180));
+        }
     }
 }
 
@@ -88,10 +102,8 @@ PrimaryGenerator::GeneratePrimaryParticle()
         This library generates position and momentum of
         muons according to parameterized functions.
 
-        Muon momentum is drawn from the distribution of the measured
-        muon spectrum and position is generated in a HalfSphere
-        with radius and origin of coordinates given by the user 
-        in the DetectorList.xml file. 
+        Muon momentum and position are drawn from the configured EcoMug
+        generation surface. EcoMug positions are in metres; Geant4 uses mm.
 
         Particle id (muon charge), position and momentum are
         set to the "currentParticle" in corresponding units.
@@ -99,7 +111,10 @@ PrimaryGenerator::GeneratePrimaryParticle()
         */
 
         fMuonGen.Generate();
-        ComputeInjectionPosition(simData, fParticlePosition);
+        const auto& generatedPosition = fMuonGen.GetGenerationPosition();
+        fParticlePosition = {generatedPosition[0] * CLHEP::m,
+                             generatedPosition[1] * CLHEP::m,
+                             generatedPosition[2] * CLHEP::m};
         pTot = fMuonGen.GetGenerationMomentum() * CLHEP::GeV;
         pTheta = fMuonGen.GetGenerationTheta();
         pPhi = fMuonGen.GetGenerationPhi();
@@ -286,6 +301,13 @@ PrimaryGenerator::ComputeInjectionPosition(SimData &simData, std::vector<double>
         xInj = currentParticle.GetPosition().at(0);
         yInj = currentParticle.GetPosition().at(1);
         zInj = currentParticle.GetPosition().at(2);
+        break;
+    case SimData::InjectionMode::eSky:
+        xInj = RandFlat::shoot(x0 - simData.GetInjectionPlaneSizeX() / 2.,
+                               x0 + simData.GetInjectionPlaneSizeX() / 2.);
+        yInj = RandFlat::shoot(y0 - simData.GetInjectionPlaneSizeY() / 2.,
+                               y0 + simData.GetInjectionPlaneSizeY() / 2.);
+        zInj = z0;
         break;
     case SimData::InjectionMode::eUnknown:
     default:

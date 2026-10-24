@@ -31,7 +31,8 @@ class SimData
 			eCircle = 1,
 			eHalfSphere = 2,
 			eVertical = 3,
-			eFromFile
+			eFromFile,
+			eSky
 		};
 
 
@@ -123,6 +124,12 @@ class SimData
 		void SetInjectionHeight(const double h) { fInjectionHeight = h; }
 		double GetInjectionHeight() { return fInjectionHeight; }
 
+		void SetInjectionPlaneSizeX(const double size) { fInjectionPlaneSizeX = size; }
+		double GetInjectionPlaneSizeX() const { return fInjectionPlaneSizeX; }
+
+		void SetInjectionPlaneSizeY(const double size) { fInjectionPlaneSizeY = size; }
+		double GetInjectionPlaneSizeY() const { return fInjectionPlaneSizeY; }
+
 		void SetInjectionMinTheta(const double minTh) { fInjectionMinTheta = minTh; }
 		double GetInjectionMinTheta() { return fInjectionMinTheta; }
 
@@ -180,6 +187,8 @@ class SimData
 
 		double fInjectionRadius = 0;
 		double fInjectionHeight = 0;
+		double fInjectionPlaneSizeX = 0;
+		double fInjectionPlaneSizeY = 0;
 
 		double fInjectionMinTheta = 0;
 		double fInjectionMaxTheta = 90;
