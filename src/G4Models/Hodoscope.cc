@@ -236,12 +236,12 @@ Hodoscope::BuildNA64MiniDetector(G4LogicalVolume* logMother, Event& aEvent, G4bo
 	}
 
 	// Lab trigger geometry from thesis_orchestrator/outputs/acceptance_viz_complete.py:
-	// T1 bottom is 14.7 mm above the 104.4 mm upper-module top; T2 stacks on T1.
+	// T1 bottom is 14.7 mm above the 113.4 mm upper-module top; T2 stacks on T1.
 	const double triggerSize = 150.0 * CLHEP::mm;
 	const double triggerThickness = 10.0 * CLHEP::mm;
 	const double triggerOffset = 42.5 * CLHEP::mm;
-	const double trigger1CenterZ = 124.1 * CLHEP::mm;
-	const double trigger2CenterZ = 134.1 * CLHEP::mm;
+	const double trigger1CenterZ = 133.1 * CLHEP::mm;
+	const double trigger2CenterZ = 143.1 * CLHEP::mm;
 	for (unsigned int plateIndex = 0; plateIndex < 2; ++plateIndex) {
 		const double sign = (plateIndex == 0) ? -1.0 : 1.0;
 		const G4String plateName = (plateIndex == 0) ? "TriggerPlate1" : "TriggerPlate2";
