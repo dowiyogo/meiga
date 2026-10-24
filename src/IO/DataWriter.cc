@@ -28,6 +28,10 @@ using boost::iostreams::file_descriptor;
 using boost::iostreams::output;
 using namespace std;
 
+namespace {
+constexpr int kGeometryVersion = 2;
+}
+
 Particle aParticle;
 
 void 
@@ -44,6 +48,18 @@ DataWriter::FileWriter(Event& theEvent)
 
 	// prepare json data holder
 	json jData;
+	for (auto &detPair : theEvent.DetectorRange()) {
+		if (detPair.second->GetName() == "HodoscopeNA64Mini") {
+			// Top-level metadata: consumers can distinguish CAD-aligned geometry
+			// without changing the per-event record layout.
+			jData["geometry_version"] = kGeometryVersion;
+			jData["sep_z_mm"] = 2.0;
+			jData["gap_xy_mm"] = 5.0;
+			jData["pitch_mm"] = 4.0;
+			jData["offset_mm"] = 2.0;
+			break;
+		}
+	}
 
 	SimData& simData = theEvent.GetSimData();
 
