@@ -12,6 +12,8 @@
 
 #include <boost/algorithm/string.hpp>
 #include <cmath>
+#include <cstdlib>
+#include <fstream>
 #include <iomanip>
 #include <iostream>
 #include <stdexcept>
@@ -207,6 +209,20 @@ Hodoscope::BuildNA64MiniDetector(G4LogicalVolume* logMother, Event& aEvent, G4bo
 	}
 
 	ValidateNA64MiniGeometry();
+
+	const char* dumpPath = std::getenv("GEOM_DUMP");
+	if (dumpPath && *dumpPath) {
+		std::ofstream dump(dumpPath);
+		if (!dump) throw std::runtime_error("Could not open GEOM_DUMP output file.");
+		dump << "module,axis,subplane,channel,x_mm,y_mm,z_mm\n" << std::setprecision(9);
+		for (const auto& meta : fNA64BarMetadata) {
+			dump << meta.module << ',' << meta.axis << ',' << meta.subplane << ','
+			     << meta.channelIndexAxis << ','
+			     << detectorPos.getX() + meta.centerX << ','
+			     << detectorPos.getY() + meta.centerY << ','
+			     << detectorPos.getZ() + meta.centerZ << '\n';
+		}
+	}
 }
 
 void
