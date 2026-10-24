@@ -69,10 +69,10 @@ private:
 	std::vector<BarMetadata> fNA64BarMetadata;
 
 	double fLowerModuleZMin = 0.00 * CLHEP::mm;
-	double fLowerModuleZMax = 13.00 * CLHEP::mm;
+	double fLowerModuleZMax = 15.00 * CLHEP::mm;
 	double fUpperModuleZMin = 98.40 * CLHEP::mm;
-	double fUpperModuleZMax = 111.40 * CLHEP::mm;
-	double fModuleTotalThickness = 13.00 * CLHEP::mm;
+	double fUpperModuleZMax = 113.40 * CLHEP::mm;
+	double fModuleTotalThickness = 15.00 * CLHEP::mm;
 	double fModuleCenterSeparation = 98.40 * CLHEP::mm;
 	double fXYAxisSeparation = 6.0 * CLHEP::mm;
 	double fSubplaneOffset = 2.0 * CLHEP::mm;

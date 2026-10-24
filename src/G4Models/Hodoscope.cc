@@ -75,7 +75,7 @@ Hodoscope::GetNA64BarCenterCoordinate(int index, double /*barWidth*/, double sub
 
 	const int subplane = index / fBarsPerSubplane;
 	const int localIndex = index % fBarsPerSubplane;
-	const double centeredOrigin = 0.5 * (fBarsPerSubplane - 1) * fBarPitchNominal;
+	const double centeredOrigin = 0.5 * ((fBarsPerSubplane - 1) * fBarPitchNominal + subplaneOffset);
 	return localIndex * fBarPitchNominal + subplane * subplaneOffset - centeredOrigin;
 }
 
@@ -170,8 +170,8 @@ Hodoscope::BuildNA64MiniDetector(G4LogicalVolume* logMother, Event& aEvent, G4bo
 				const double transverse = GetNA64BarCenterCoordinate(channel, GetBarWidth(), fSubplaneOffset);
 				const double localZ =
 					(axis == "X")
-						? ((subplane == 0) ? 12.5 * CLHEP::mm : 9.5 * CLHEP::mm)
-						: ((subplane == 0) ? 3.5 * CLHEP::mm : 0.5 * CLHEP::mm);
+						? ((subplane == 0) ? 1.5 * CLHEP::mm : 4.5 * CLHEP::mm)
+						: ((subplane == 0) ? 10.5 * CLHEP::mm : 13.5 * CLHEP::mm);
 				const double centerZ = module.zMin + localZ;
 				const double centerX = (axis == "X") ? transverse : 0.0;
 				const double centerY = (axis == "Y") ? transverse : 0.0;
